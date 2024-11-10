@@ -1,0 +1,37 @@
+<div class="results-wrapper">
+  <div class="results-section">
+    <h2 class="section-title">תוצאות ההצבעה</h2>
+
+    <!-- כיתה מנצחת -->
+    <div class="winner-section">
+      <h3 class="winner-title">הכיתה המנצחת!</h3>
+      <div class="winner-card">
+        <div class="winner-info">
+          <img [src]="winner.image_url" alt="{{ winner.class_name }}" class="winner-image"/>
+          <div class="winner-details">
+            <h4>{{ winner.class_name }}</h4>
+            <p>מספר הצבעות: {{ winner.vote_count }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- גרף -->
+    <div class="chart-container">
+      <canvas id="voteChart"></canvas>
+    </div>
+
+    <!-- כיתות אחרות -->
+    <div class="results-list">
+      <div *ngFor="let result of results" class="result-item">
+        <div class="result-image-container">
+          <img [src]="result.image_url" alt="{{ result.class_name }}" class="result-image"/>
+        </div>
+        <div class="result-details">
+          <h4>{{ result.class_name }}</h4>
+          <p>מספר הצבעות: {{ result.vote_count }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

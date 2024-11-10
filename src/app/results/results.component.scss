@@ -1,0 +1,144 @@
+.results-wrapper {
+  width: 90%;
+  margin: 30px auto;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.results-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+.winner-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.winner-title {
+  font-size: 22px;
+  color: #e67e22;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.winner-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff8e1; /* צבע רקע בהיר שמוסיף צבע */
+  padding: 10px 20px;
+  border-radius: 15px; /* מעוגלים יותר */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* הצללה עם עוצמה עדינה */
+  width: 100%;
+  max-width: 500px; /* שמירה על גודל מתאים */
+  margin: 0 auto;
+  border: 2px solid #e67e22; /* גבול דק בצבע כתום בהיר */
+}
+
+.winner-image {
+  width: 180px; /* גודל גדול יותר */
+  height: 120px; /* גובה מותאם לתמונה מלבנית */
+  object-fit: cover; /* שומר על פרופורציות התמונה */
+  margin-right: 20px; /* רווח קטן בין התמונה לשם */
+  border-radius: 10px; /* מעוגלים מעט את התמונה אם תרצה */
+}
+
+.winner-details {
+  text-align: center; /* מרכז את שם הכיתה */
+  color: #34495e;
+}
+
+.winner-details h4 {
+  font-size: 26px; /* גודל מותאם של שם הכיתה */
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase; /* הופך את הטקסט לאותיות רישיות כדי להדגיש */
+  letter-spacing: 1px; /* רווח בין האותיות */
+}
+
+.winner-details p {
+  font-size: 20px; /* גודל מותאם של מספר הצבעות */
+  color: #7f8c8d;
+  font-weight: bold;
+  background-color:#e67e22; /* צבע רקע כתום */
+  color: #fff; /* צבע טקסט לבן על הרקע הכתום */
+  padding: 5px 15px; /* רווחים פנימיים */
+  border-radius: 20px; /* מעגלים קלים לאזור של מספר ההצבעות */
+  margin-top: 10px;
+  display: inline-block; /* מתאים את הגודל של הטקסט לרקע */
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 30px;
+}
+
+/* כיתות אחרות */
+.results-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.result-item {
+  background-color: #ffffff;
+  width: 200px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.result-item:hover {
+  transform: translateY(-8px);
+}
+
+.result-image-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.result-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.result-details h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2980b9;
+  margin-top: 10px;
+}
+
+.result-details p {
+  font-size: 14px;
+  color: #7f8c8d;
+}

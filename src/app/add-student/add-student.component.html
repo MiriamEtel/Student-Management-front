@@ -1,0 +1,9 @@
+<div class="add-student-container">
+    <h2 class="header">הוסף תלמיד חדש</h2>
+    <div class="form-container">
+      <input type="text" [(ngModel)]="studentName" class="input-field" placeholder="שם התלמיד" />
+      <input type="text" [(ngModel)]="idNumber" class="input-field" placeholder="מספר תעודת זהות" />
+      <button (click)="addStudent()" class="btn btn-primary">הוסף תלמיד</button>
+    </div>
+  </div>
+  

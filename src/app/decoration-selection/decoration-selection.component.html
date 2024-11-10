@@ -1,0 +1,18 @@
+<div class="decoration-selection-container">
+  <h2 class="header">בחרי קישוט זוכה</h2>
+  <div class="decorations-list">
+    <div *ngFor="let decoration of decorations" class="decoration-item" [ngClass]="{'disabled': hasVoted}">
+      <!-- שם הקישוט מוצג מעל התמונה -->
+      <div class="decoration-name">{{ decoration.class_name }}</div>
+      <img [src]="decoration.image_url" alt="{{ decoration.class_name }}" class="decoration-image"/>
+      <div class="decoration-details">
+        <button (click)="selectDecoration(decoration)" class="btn btn-success" [disabled]="hasVoted">בחר</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- הודעה כללית לאחר ההצבעה -->
+  <div *ngIf="hasVoted" class="voted-message">
+    כבר הצבעת! תודה על השתתפותך.
+  </div>
+</div>

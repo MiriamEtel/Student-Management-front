@@ -1,0 +1,13 @@
+<ng-template #login>
+  <app-login (loginStatus)="onLoginStatusChange($event)"></app-login>
+</ng-template>
+
+<div *ngIf="isLoggedIn; else login">
+  <div class="navigation-buttons">
+    <button routerLink="/decoration-selection" class="nav-btn">בחר קישוט</button>
+    <button routerLink="/add-student" class="nav-btn">הוסף תלמיד</button>
+    <button routerLink="/upload-decoration" class="nav-btn">העלה קישוט</button>
+    <button routerLink="/results" class="nav-btn">צפייה בתוצאות</button>
+  </div>
+  <router-outlet></router-outlet>
+</div>

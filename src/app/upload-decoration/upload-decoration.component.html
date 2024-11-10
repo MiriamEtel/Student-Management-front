@@ -1,0 +1,21 @@
+<div class="upload-container">
+  <h2 class="upload-title">העלאת תמונת קישוט</h2>
+  <form (ngSubmit)="uploadImage()" #uploadForm="ngForm">
+      <div class="form-group">
+          <label class="custom-file-label">
+              <input type="file" class="form-control-file" id="image" name="image" (change)="onFileSelected($event)">
+              <span class="file-info">{{ selectedFile ? selectedFile.name : 'בחר תמונה' }}</span>
+          </label>
+      </div>
+      <div class="form-group">
+          <label for="name">שם הכיתה</label>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="imageName" required>
+      </div>
+      <button type="submit" class="btn btn-turquoise" [disabled]="!uploadForm.valid">
+        העלה תמונה
+      </button>
+  </form>
+  <div *ngIf="selectedImage" class="image-preview">
+      <img [src]="selectedImage" alt="Preview" />
+  </div>
+</div>

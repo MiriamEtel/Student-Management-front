@@ -1,0 +1,13 @@
+<div class="login-container">
+  <h2 class="header">התחברות למערכת</h2>
+  <div class="form-container">
+    <!-- שדה עבור שם משתמש -->
+    <input type="text" [(ngModel)]="username" class="input-field" placeholder="שם משתמש" required />
+
+    <!-- שדה עבור מספר תעודת זהות -->
+    <input type="text" [(ngModel)]="id_number" class="input-field" placeholder="מספר תעודת זהות" required />
+
+    <!-- כפתור התחברות -->
+    <button (click)="login()" class="btn btn-primary">התחבר</button>
+  </div>
+</div>
