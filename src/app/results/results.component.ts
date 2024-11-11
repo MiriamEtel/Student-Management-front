@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js';
+import { environment } from '../../environments/environment'; // ייבוא משתנה הסביבה
 
 @Component({
   selector: 'app-results',
@@ -19,7 +20,9 @@ export class ResultsComponent implements OnInit {
   }
 
   loadResults() {
-    this.http.get('http://127.0.0.1:5000/get_vote_results').subscribe((response: any) => {
+    const apiUrl = environment.apiUrl; // שימוש במשתנה apiUrl
+
+    this.http.get(`${apiUrl}/get_vote_results`).subscribe((response: any) => {
       this.results = response;
       this.winner = this.results.reduce((prev, current) => (prev.vote_count > current.vote_count) ? prev : current);
       this.createChart();

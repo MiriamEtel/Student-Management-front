@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../user.service'; // ייבוא ה-UserService
+import { environment } from '../../environments/environment'; // ייבוא משתנה הסביבה
 
 @Component({
   selector: 'app-decoration-selection',
@@ -18,7 +19,9 @@ export class DecorationSelectionComponent implements OnInit {
   }
 
   loadDecorations() {
-    this.http.get('http://127.0.0.1:5000/decorations').subscribe((response: any) => {
+    // שימוש במשתנה apiUrl
+    const apiUrl = environment.apiUrl;
+    this.http.get(`${apiUrl}/decorations`).subscribe((response: any) => {
       this.decorations = response;
     });
   }
@@ -32,7 +35,9 @@ export class DecorationSelectionComponent implements OnInit {
       id_number: userIdNumber
     };
 
-    this.http.post('http://127.0.0.1:5000/select_decoration', requestData)
+    // שימוש במשתנה apiUrl
+    const apiUrl = environment.apiUrl;
+    this.http.post(`${apiUrl}/select_decoration`, requestData)
       .subscribe((response: any) => {
         if (response.success) {
           this.hasVoted = true;  // עדכון המצב ל"משתמש הצביע"

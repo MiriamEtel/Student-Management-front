@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment'; // ייבוא משתנה הסביבה
 
 @Component({
   selector: 'app-upload-decoration',  
@@ -39,8 +40,9 @@ export class UploadDecorationComponent {
     uploadData.append('image', this.selectedFile, this.selectedFile.name);
     uploadData.append('name', this.imageName);  // מחליף את 'name' ב-'class_name' אם זה מה שמצפה השרת
   
-    // קריאה ל-API של השרת ב-Node.js
-    this.http.post<any>('http://localhost:5000/add-decoration', uploadData).subscribe(
+    // קריאה ל-API של השרת
+    const apiUrl = environment.apiUrl; // שימוש במשתנה apiUrl
+    this.http.post<any>(`${apiUrl}/add-decoration`, uploadData).subscribe(
       (res) => {
         console.log(res);
         alert(`התמונה של ${this.imageName} הועלתה בהצלחה!`);
@@ -51,5 +53,4 @@ export class UploadDecorationComponent {
       }
     );
   }
-  
 }

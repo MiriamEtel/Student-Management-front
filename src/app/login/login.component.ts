@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service'; // ייבוא ה-UserService
+import { environment } from '../../environments/environment'; // ייבוא משתנה הסביבה
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,10 @@ export class LoginComponent {
   login() {
     const loginData = { username: this.username, id_number: this.id_number };
 
-    this.http.post('http://127.0.0.1:5000/login', loginData)
+    // שימוש במשתנה apiUrl
+    const apiUrl = environment.apiUrl;
+
+    this.http.post(`${apiUrl}/login`, loginData)
     .subscribe((response: any) => {
       console.log('Login response:', response);
       if (response.success) {

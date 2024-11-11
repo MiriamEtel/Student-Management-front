@@ -12,6 +12,7 @@ import { UploadDecorationComponent } from './upload-decoration/upload-decoration
 import { ResultsComponent } from './results/results.component';
 import { NgChartsModule } from 'ng2-charts';
 
+
 @NgModule({
   declarations: [
     AppComponent,
