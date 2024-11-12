@@ -1,20 +1,36 @@
 .navigation-buttons {
-    display: flex;
-    gap: 20px;
-    margin: 20px 0;
-    justify-content: center;
-  }
-  
-  .nav-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .nav-btn:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.nav-btn {
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #8e5a3d, #5d470a); /* גרדיאנט חום */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase; /* כל הכיתוב באותיות רישיות */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* צל חזק */
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* אפקטים חלקים */
+}
+
+.nav-btn:hover {
+  background: linear-gradient(135deg, #5d470a, #8e5a3d); /* שינוי צבע ב-hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* הצללה חזקה יותר */
+  transform: translateY(-3px); /* אפקט של התרוממות קליל */
+}
+
+.nav-btn:active {
+  transform: translateY(2px); /* אפקט של לחיצה */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn:focus {
+  outline: none; /* מסיר את המסגרת המוכרת ב-focus */
+  box-shadow: 0 0 5px 2px rgba(93, 71, 18, 0.7); /* הוספת הצללה כשהכפתור מקבל פוקוס */
+}

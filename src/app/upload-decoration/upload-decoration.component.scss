@@ -1,6 +1,6 @@
 .upload-container {
   padding: 20px;
-  background-color: #f9f9f9; 
+  background-color: #faf0e6; /* צבע חום בהיר */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 600px;
@@ -9,7 +9,7 @@
 }
 
 .upload-title {
-  color: #004d40;
+  color: #5d470a; /* חום כהה */
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: 600;
@@ -21,8 +21,8 @@
 
 .custom-file-label {
   display: block;
-  background-color: #e0f2f1; 
-  border: 2px solid #004d40; 
+  background-color: #d2b48c; /* חום בהיר */
+  border: 2px solid #5d470a; /* חום כהה */
   border-radius: 5px;
   padding: 10px;
   position: relative;
@@ -30,11 +30,11 @@
 }
 
 .custom-file-label input[type="file"] {
-  display: none; /* Hides the original file input */
+  display: none; /* הסתרת שדה הקובץ המקורי */
 }
 
 .file-info {
-  color: #004d40; 
+  color: #5d470a; /* חום כהה */
   font-size: 16px;
 }
 
@@ -42,12 +42,12 @@
   width: calc(100% - 20px);
   padding: 10px;
   border-radius: 5px;
-  border: 2px solid #004d40; 
+  border: 2px solid #5d470a; /* חום כהה */
   font-size: 16px;
 }
 
 .btn-turquoise {
-  background-color: #004d40;
+  background-color: #5d470a; /* חום כהה */
   border: none;
   color: white;
   padding: 10px 20px;
@@ -64,7 +64,7 @@
 }
 
 .btn-turquoise:hover {
-  background-color: #00332e; 
+  background-color: #3b2e06; /* חום כהה יותר */
 }
 
 .btn-turquoise i {
@@ -85,12 +85,13 @@
 }
 
 .form-group label[for="name"] {
-  color: #004d40; 
-  font-size: 18px; 
+  color: #5d470a; /* חום כהה */
+  font-size: 18px;
   font-weight: 600; /* Bold */
 }
+
 .image-preview img {
-  max-width: 200px; 
+  max-width: 200px;
   height: auto;
   border: 1px solid #ddd;
   border-radius: 5px;

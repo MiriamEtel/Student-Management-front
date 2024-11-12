@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-image: url('assets/background.jpg'); /* שינוי נתיב לתמונה */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    height: 100%; /* ודא שהגובה של הגוף מכסה את כל המסך */
+}
+
+/* אפשר להוסיף עיצוב לדפים אחרים כאן */
+
+  
