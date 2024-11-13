@@ -1,0 +1,57 @@
+.dialog-container {
+    background-color: #f4e1d2; /* צבע חום בהיר */
+    color: #4f2c1d; /* צבע חום כהה */
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .dialog-header h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4f2c1d;
+    margin-bottom: 15px;
+  }
+  
+  .dialog-body {
+    font-size: 16px;
+    color: #6f4b3d; /* גוון חום נוסף */
+    margin: 10px 0;
+  }
+  
+  .dialog-footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .confirm-button {
+    background-color: #6f4b3d; /* צבע חום כהה */
+    color: #ffffff;
+  }
+  
+  .confirm-button:hover {
+    background-color: #4f2c1d; /* צבע כהה יותר */
+  }
+  
+  .cancel-button {
+    background-color: #d8c3b1; /* חום בהיר */
+    color: #4f2c1d;
+  }
+  
+  .cancel-button:hover {
+    background-color: #b89b87;
+  }
+  

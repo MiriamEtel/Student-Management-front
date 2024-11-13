@@ -11,6 +11,9 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { UploadDecorationComponent } from './upload-decoration/upload-decoration.component';
 import { ResultsComponent } from './results/results.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ConfirmVoteDialogComponent } from './confirm-vote-dialog/confirm-vote-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';  // ייבוא עבור Dialog
+import { MatButtonModule } from '@angular/material/button'; 
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import { NgChartsModule } from 'ng2-charts';
     DecorationSelectionComponent,
     AddStudentComponent,
     UploadDecorationComponent,
-    ResultsComponent, 
+    ResultsComponent,
+    ConfirmVoteDialogComponent, 
+    
     
   ],
   imports: [
@@ -34,7 +39,9 @@ import { NgChartsModule } from 'ng2-charts';
     ]),
     FormsModule ,
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
+    MatDialogModule,  // הוספת המודול פה
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

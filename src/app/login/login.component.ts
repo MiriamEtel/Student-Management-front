@@ -38,7 +38,7 @@ export class LoginComponent {
       }
     }, (error) => {
       console.error('Login error:', error);
-      alert('שגיאה בשרת או בנתונים');
+      alert('שם משתמש או תעודת זהות שגויים');
     });
   }
 }
