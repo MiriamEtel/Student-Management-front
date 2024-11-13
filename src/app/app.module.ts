@@ -14,6 +14,10 @@ import { NgChartsModule } from 'ng2-charts';
 import { ConfirmVoteDialogComponent } from './confirm-vote-dialog/confirm-vote-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';  // ייבוא עבור Dialog
 import { MatButtonModule } from '@angular/material/button'; 
+import { MatSnackBarModule } from '@angular/material/snack-bar';  // ייבוא של מודול MatSnackBar
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 @NgModule({
@@ -42,6 +46,8 @@ import { MatButtonModule } from '@angular/material/button';
     NgChartsModule,
     MatDialogModule,  // הוספת המודול פה
     MatButtonModule,
+    MatSnackBarModule, 
+    BrowserAnimationsModule,  // הוספת מודול אנימציות
   ],
   providers: [],
   bootstrap: [AppComponent]

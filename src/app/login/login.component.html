@@ -11,3 +11,10 @@
     <button (click)="login()" class="btn btn-primary">התחבר</button>
   </div>
 </div>
+<div class="custom-alert" *ngIf="showAlert">
+  <div class="custom-alert-content">
+    <p>{{ alertMessage }}</p>
+    <button (click)="closeAlert()">אישור</button>
+  </div>
+</div>
+

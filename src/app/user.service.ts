@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   private idNumber: string | null = null;
+  private userClass: string | null = null; // הוספת שדה לשמירת הכיתה
 
   // פונקציה לשמירת ה-ID
   setIdNumber(idNumber: string) {
@@ -18,9 +19,22 @@ export class UserService {
     return this.idNumber || localStorage.getItem('id_number');
   }
 
-  // פונקציה למחיקת ה-ID (לשימוש בזמן התנתקות)
-  clearIdNumber() {
+  // פונקציה לשמירת שם הכיתה של המשתמש
+  setUserClass(userClass: string) {
+    this.userClass = userClass;
+    localStorage.setItem('user_class', userClass); // שמירת הכיתה ב-Local Storage
+  }
+
+  // פונקציה לשליפת שם הכיתה
+  getUserClass(): string | null {
+    return this.userClass || localStorage.getItem('user_class');
+  }
+
+  // פונקציה למחיקת ה-ID והכיתה (לשימוש בזמן התנתקות)
+  clearUserData() {
     this.idNumber = null;
+    this.userClass = null;
     localStorage.removeItem('id_number');
+    localStorage.removeItem('user_class');
   }
 }

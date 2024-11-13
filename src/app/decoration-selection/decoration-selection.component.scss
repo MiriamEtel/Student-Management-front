@@ -64,3 +64,18 @@
   color: #5d470a;
   text-align: center;
 }
+::ng-deep .custom-snackbar {
+  font-size: 20px;  /* גודל טקסט גדול יותר */
+  text-align: center;  /* למרכז את הטקסט */
+  padding: 20px;  /* ריווח פנימי */
+  background-color: rgba(143, 85, 8, 0.8);  /* צבע רקע כהה */
+  color: rgb(255, 255, 255);  /* צבע טקסט לבן */
+  border-radius: 8px;  /* פינות מעוגלות */
+  position: fixed;  /* מיקום קבוע במסך */
+  top: 50%;  /* הצגת ההודעה במרכז המסך לגובה */
+  left: 50%;  /* למרכז את ההודעה אופקית */
+  transform: translate(-50%, -50%);  /* למרכז את ההודעה בדיוק באמצע */
+  z-index: 9999;  /* לוודא שההודעה תהיה מעל שאר התוכן */
+}
+
+

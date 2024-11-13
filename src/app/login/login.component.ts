@@ -13,6 +13,8 @@ export class LoginComponent {
   username: string = '';
   id_number: string = '';
   @Output() loginStatus = new EventEmitter<boolean>(); // מגדיר את EventEmitter
+  showAlert: boolean = false;
+  alertMessage: string = '';
 
   constructor(
     private http: HttpClient,
@@ -20,6 +22,14 @@ export class LoginComponent {
     private userService: UserService // הזרקת UserService
   ) {}
 
+  showCustomAlert(message: string) {
+    this.alertMessage = message;
+    this.showAlert = true;
+  }
+
+  closeAlert() {
+    this.showAlert = false;
+  }
   login() {
     const loginData = { username: this.username, id_number: this.id_number };
 
@@ -38,7 +48,7 @@ export class LoginComponent {
       }
     }, (error) => {
       console.error('Login error:', error);
-      alert('שם משתמש או תעודת זהות שגויים');
+      this.showCustomAlert('שם משתמש או תעודת זהות שגויים');
     });
   }
 }
