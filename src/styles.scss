@@ -2,6 +2,8 @@
 
 /* You can add global styles to this file, and also import other style files */
 
+/* You can add global styles to this file, and also import other style files */
+
 html, body {
     height: 100%;
     margin: 0;
@@ -15,6 +17,17 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     height: 100%; /* ודא שהגובה של הגוף מכסה את כל המסך */
 }
+
+/* הגדרת זום רק למסכים במצב אורך */
+@media (orientation: portrait) {
+    body {
+        zoom: 1.8; /* מגדיל את כל התצוגה ב-20% במצב אורך */
+    }
+}
+
+/* אפשר להוסיף עיצוב לדפים אחרים כאן */
+
+
 
 /* אפשר להוסיף עיצוב לדפים אחרים כאן */
 
