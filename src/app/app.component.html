@@ -4,10 +4,14 @@
 
 <div *ngIf="isLoggedIn; else login">
   <div class="navigation-buttons">
+    <!-- לחצן שזמין לכולם -->
     <button routerLink="/decoration-selection" class="nav-btn">בחר קישוט</button>
-    <button routerLink="/add-student" class="nav-btn">הוסף תלמיד</button>
-    <button routerLink="/upload-decoration" class="nav-btn">העלה קישוט</button>
     <button routerLink="/results" class="nav-btn">צפייה בתוצאות</button>
+
+    <!-- לחצנים שזמינים רק למנהלים -->
+    <button *ngIf="isAdmin" routerLink="/add-student" class="nav-btn">הוסף תלמיד</button>
+    <button *ngIf="isAdmin" routerLink="/upload-decoration" class="nav-btn">העלה קישוט</button>
+
     <!-- כפתור התנתקות -->
     <button (click)="logout()" class="nav-btn">התנתק </button>
   </div>

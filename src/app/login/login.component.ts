@@ -30,6 +30,7 @@ export class LoginComponent {
   closeAlert() {
     this.showAlert = false;
   }
+
   login() {
     const loginData = { username: this.username, id_number: this.id_number };
 
@@ -41,10 +42,12 @@ export class LoginComponent {
       console.log('Login response:', response);
       if (response.success) {
         this.userService.setIdNumber(this.id_number); // שמירת ה-id ב-UserService
+        this.userService.setRole(response.role); // שמירת התפקיד ב-UserService
+        this.userService.setUserClass(response.user_class); // אם יש כיתה, שמירה של הכיתה
         this.loginStatus.emit(true); // שדר את הסטטוס של התחברות מוצלחת
         this.router.navigate(['/decoration-selection']);
       } else {
-        alert('שם משתמש או תעודת זהות שגויים');
+        this.showCustomAlert('שם משתמש או תעודת זהות שגויים');
       }
     }, (error) => {
       console.error('Login error:', error);
