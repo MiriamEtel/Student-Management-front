@@ -1,0 +1,88 @@
+.upload-container {
+    padding: 20px;
+    background-color: #faf0e6; /* צבע חום בהיר */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .upload-title {
+    color: #5d470a; /* חום כהה */
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .custom-file-label {
+    display: block;
+    background-color: #d2b48c; /* חום בהיר */
+    border: 2px solid #5d470a; /* חום כהה */
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .custom-file-label input[type="file"] {
+    display: none; /* הסתרת שדה הקובץ המקורי */
+  }
+  
+  .file-info {
+    color: #5d470a; /* חום כהה */
+    font-size: 16px;
+  }
+  
+  .form-control {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #5d470a; /* חום כהה */
+    font-size: 16px;
+  }
+  
+  .btn-turquoise {
+    background-color: #5d470a; /* חום כהה */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-turquoise:hover {
+    background-color: #3b2e06; /* חום כהה יותר */
+  }
+  
+  .error-message {
+    color: rgb(219, 9, 9);
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .image-preview {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .image-preview img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  

@@ -1,0 +1,37 @@
+<div class="class-points-container">
+    <h2 class="title">הנקודות של הכיתה</h2>
+  
+    <!-- הצגת סך הנקודות של הכיתה -->
+    <div class="class-summary">
+      <p class="total-points">סך כל הנקודות של הכיתה: {{classPoints}}</p> <!-- השתמש ב-classPoints במקום studentPoints -->
+      <div class="progress-bar">
+        <div class="progress" [style.width]="(classPoints / 1000) * 100 + '%'"></div> <!-- השתמש ב-classPoints במקום studentPoints -->
+      </div>
+    </div>
+  
+    <!-- ציוני הדרך -->
+    <div class="milestones">
+      <h3>ציוני דרך</h3>
+      <ul>
+        <li *ngFor="let milestone of milestones" class="milestone-item">
+          <span class="milestone-description">{{milestone.description}} - הושג ב-{{milestone.points}} נקודות</span>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- משוב אוטומטי לכיתה -->
+    <div class="feedback">
+      <p>{{feedbackMessage}}</p>
+    </div>
+  
+    <!-- הצגת הנקודות לפי פרויקטים -->
+    <div class="projects">
+      <h3>הנקודות לפי פרויקטים</h3>
+      <ul>
+        <li *ngFor="let project of projects" class="project-item">
+          <span>{{project.name}} - {{project.points}} נקודות</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

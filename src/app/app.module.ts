@@ -2,8 +2,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router'; 
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule,ReactiveFormsModule } from '@angular/forms'; 
 
+import { MatTooltipModule } from '@angular/material/tooltip';  // הוספת המודול
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DecorationSelectionComponent } from './decoration-selection/decoration-selection.component';
@@ -16,6 +17,18 @@ import { MatDialogModule } from '@angular/material/dialog';  // ייבוא עב�
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatSnackBarModule } from '@angular/material/snack-bar';  // ייבוא של מודול MatSnackBar
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StudentPointsComponent } from './student-points/student-points.component';
+import { ClassPointsComponent } from './class-points/class-points.component';
+import { MatIconModule } from '@angular/material/icon';
+import { AddPointsComponent } from './add-points/add-points.component'; // ייבוא מודול MatIcon
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+
+
+
 
 
 
@@ -28,7 +41,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddStudentComponent,
     UploadDecorationComponent,
     ResultsComponent,
-    ConfirmVoteDialogComponent, 
+    ConfirmVoteDialogComponent,
+    StudentPointsComponent,
+    ClassPointsComponent,
+    AddPointsComponent, 
     
     
   ],
@@ -39,15 +55,29 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path: 'decoration-selection', component: DecorationSelectionComponent },  // בחירת קישוט לתלמיד
       { path: 'add-student', component: AddStudentComponent },  // הוספת תלמיד
       { path: 'upload-decoration', component: UploadDecorationComponent },  // העלאת קישוט
-      { path: 'results', component: ResultsComponent }  // צפייה בתוצאות
+      { path: 'results', component: ResultsComponent } , // צפייה בתוצאות
+      { path: 'student-points', component: StudentPointsComponent }, // נקודות תלמיד
+      { path: 'class-points', component: ClassPointsComponent }, // נקודות כיתה
+      { path: 'add-points', component: AddPointsComponent },
+
+
     ]),
     FormsModule ,
+    ReactiveFormsModule,
     HttpClientModule,
     NgChartsModule,
     MatDialogModule,  // הוספת המודול פה
     MatButtonModule,
     MatSnackBarModule, 
     BrowserAnimationsModule,  // הוספת מודול אנימציות
+    MatTooltipModule,
+    MatIconModule,
+    MatOptionModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCardModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

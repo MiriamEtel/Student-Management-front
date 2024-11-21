@@ -1,0 +1,26 @@
+<div class="points-container">
+    <h2 class="header">הנקודות שלך</h2>
+    
+    <!-- הצגת מספר הנקודות -->
+    <div class="points-text">
+        <p>מספר הנקודות שצברת: <strong>{{ totalPoints }}</strong></p>
+    </div>
+  
+    <!-- הצגת הכוכבים -->
+    <div class="points-display">
+        <!-- הצגת נקודות זהב בשורה נפרדת -->
+        <div class="gold-row">
+            <div *ngFor="let gold of goldPointsArray" class="point gold"></div>
+        </div>
+        
+        <!-- הצגת נקודות כסף בשורה נפרדת -->
+        <div class="silver-row">
+            <div *ngFor="let silver of silverPointsArray" class="point silver"></div>
+        </div>
+    </div>
+  
+    <!-- הודעת עידוד -->
+    <div *ngIf="bonusMessage" class="encouragement">
+        {{ bonusMessage }}
+    </div>
+</div>
