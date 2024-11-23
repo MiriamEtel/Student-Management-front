@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment'; // ייבוא משתנה הסביבה
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentPointsService {
-  private apiUrl = 'http://localhost:5000'; // כתובת ה-API שלך
+  private apiUrl = environment.apiUrl;// כתובת ה-API שלך
 
   constructor(private http: HttpClient) {}
 

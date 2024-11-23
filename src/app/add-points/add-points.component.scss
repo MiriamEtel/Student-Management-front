@@ -85,4 +85,51 @@
     border-radius: 5px;
     padding: 5px;
   }
+  .custom-radio-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .radio-buttons-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* הצרנו את המרווחים בין הכפתורים */
+  }
+  
+  .radio-button {
+    position: relative;
+  }
+  
+  .radio-label {
+    display: inline-block;
+    background-color: #8b5e3c; /* גוון חום כהה */
+    color: #fff;
+    padding: 8px 12px; /* הקטנה של הריפוד */
+    border-radius: 6px; /* עיגול קל יותר */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 14px; /* הקטנת גודל הפונט */
+  }
+  
+  .radio-label:hover {
+    background-color: #704b2e; /* גוון חום כהה יותר */
+  }
+  
+  .radio-button input[type="radio"] {
+    display: none; /* מחביא את כפתור הבחירה המקורי */
+  }
+  
+  .radio-button input[type="radio"]:checked + .radio-label {
+    background-color: #4e3521; /* גוון חום כהה במיוחד */
+    border: 2px solid #fff;
+    transform: scale(1.05);
+  }
+  
+  .radio-buttons-row .radio-label {
+    min-width: 100px; /* הקטנה של רוחב הכפתורים */
+    text-align: center;
+  }
   

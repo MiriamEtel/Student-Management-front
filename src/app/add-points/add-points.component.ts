@@ -9,23 +9,39 @@ import { UserService } from '../user.service';
   styleUrls: ['./add-points.component.scss'],
 })
 export class AddPointsComponent {
-  addPointsForm: FormGroup;
-  selectedFile: File | null = null;
+  operationType: string = ''; // סוג הפעולה שנבחרה
   isAdmin: boolean = false;
-  userId: string | null = null;
+
+  // טפסים נפרדים
+  individualForm: FormGroup; // טופס עבור תלמידה בודדת
+  classForm: FormGroup; // טופס עבור כיתה
+  groupForm: FormGroup; // טופס עבור קבוצת תלמידות עם קובץ
+
+  selectedFile: File | null = null; // קובץ שהועלה
 
   constructor(
     private fb: FormBuilder,
     private pointsService: StudentPointsService,
     private userService: UserService
   ) {
-    this.addPointsForm = this.fb.group({
+    // אתחול הטפסים
+    this.individualForm = this.fb.group({
+      studentId: ['', Validators.required],
+      points: ['', [Validators.required, Validators.min(1)]],
+    });
+
+    this.classForm = this.fb.group({
+      className: ['', Validators.required],
+      points: ['', [Validators.required, Validators.min(1)]],
+    });
+
+    this.groupForm = this.fb.group({
       points: ['', [Validators.required, Validators.min(1)]],
       file: [null, Validators.required],
     });
 
+    // בדיקת האם המשתמש הוא אדמין
     this.isAdmin = this.userService.isAdmin();
-    this.userId = this.userService.getIdNumber();
   }
 
   onFileChange(event: any): void {
@@ -36,38 +52,67 @@ export class AddPointsComponent {
 
       if (validExtensions.includes(fileExtension)) {
         this.selectedFile = file;
-        this.addPointsForm.patchValue({ file: this.selectedFile });
+        this.groupForm.patchValue({ file: this.selectedFile });
       } else {
         alert('ניתן להעלות רק קבצי Excel עם סיומת .xls או .xlsx');
         this.selectedFile = null;
-        this.addPointsForm.patchValue({ file: null });
+        this.groupForm.patchValue({ file: null });
         event.target.value = ''; // איפוס הקובץ שנבחר
       }
     }
   }
 
-  onSubmit(): void {
-    if (this.addPointsForm.invalid || !this.selectedFile) {
-      alert('נא למלא את כל השדות ולהעלות קובץ תקין');
+  onSubmitIndividual(): void {
+    if (this.individualForm.invalid) {
+      alert('נא למלא את כל השדות הנדרשים.');
       return;
     }
 
-    const points = this.addPointsForm.get('points')?.value;
+    const { studentId, points } = this.individualForm.value;
+    this.pointsService.updateStudentPoints(studentId, points).subscribe(
+      (response) => {
+        alert('נקודות נוספו לתלמידה בהצלחה!');
+      },
+      (error) => {
+        alert('אירעה שגיאה בעדכון הנקודות.');
+        console.error(error);
+      }
+    );
+  }
 
-   // if (this.isAdmin) {
-      // העלאת הקובץ ועדכון הנקודות
-      this.pointsService.uploadExcelWithPoints(this.selectedFile, points).subscribe(
-        (response) => {
-          alert('הקובץ הועלה והנקודות עודכנו בהצלחה!');
-          console.log('Success:', response);
-        },
-        (error) => {
-          alert('אירעה שגיאה בעת העלאת הקובץ.');
-          console.error('Error:', error);
-        }
-      );
-   // } else {
-   //   alert('משתמשים רגילים לא יכולים לעדכן נתונים.');
-   // }
+  onSubmitClass(): void {
+    if (this.classForm.invalid) {
+      alert('נא למלא את כל השדות הנדרשים.');
+      return;
+    }
+
+    const { className, points } = this.classForm.value;
+    this.pointsService.updateClassPoints(className, points).subscribe(
+      (response) => {
+        alert('נקודות נוספו לכיתה בהצלחה!');
+      },
+      (error) => {
+        alert('אירעה שגיאה בעדכון הנקודות.');
+        console.error(error);
+      }
+    );
+  }
+
+  onSubmitGroup(): void {
+    if (this.groupForm.invalid || !this.selectedFile) {
+      alert('נא למלא את כל השדות הנדרשים ולהעלות קובץ.');
+      return;
+    }
+
+    const points = this.groupForm.get('points')?.value;
+    this.pointsService.uploadExcelWithPoints(this.selectedFile, points).subscribe(
+      (response) => {
+        alert('הקובץ הועלה בהצלחה!');
+      },
+      (error) => {
+        alert('אירעה שגיאה בהעלאת הקובץ.');
+        console.error(error);
+      }
+    );
   }
 }

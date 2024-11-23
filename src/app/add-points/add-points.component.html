@@ -1,37 +1,153 @@
 <div class="upload-container">
-    <h2 class="upload-title">הוספת נקודות</h2>
-    <form [formGroup]="addPointsForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label class="custom-file-label">
-          <input
-            type="file"
-            class="form-control-file"
-            id="file"
-            name="file"
-            (change)="onFileChange($event)"
-            accept=".xlsx, .xls"
-          />
-          <span class="file-info">{{ selectedFile ? selectedFile.name : 'בחר קובץ' }}</span>
-        </label>
-      </div>
-  
-      <div class="form-group">
-        <label for="points">נקודות להוספה</label>
+  <h2 class="upload-title">הוספת נקודות</h2>
+
+  <div class="form-group custom-radio-buttons">
+    <label>: בחרי סוג פעולה</label>
+    <div class="radio-buttons-row">
+      <div class="radio-button">
         <input
-          type="number"
-          class="form-control"
-          id="points"
-          formControlName="points"
-          required
+          type="radio"
+          id="specific-student"
+          name="operationType"
+          value="specificStudent"
+          [(ngModel)]="operationType"
         />
-        <div *ngIf="addPointsForm.get('points')?.invalid" class="error-message">
-          יש להזין ערך תקין
-        </div>
+        <label for="specific-student" class="radio-label">לתלמידה ספציפית</label>
       </div>
-  
-      <button type="submit" class="btn-turquoise" [disabled]="!addPointsForm.valid">
-        שלח
-      </button>
-    </form>
+      <div class="radio-button">
+        <input
+          type="radio"
+          id="specific-class-total"
+          name="operationType"
+          value="specificClassTotal"
+          [(ngModel)]="operationType"
+        />
+        <label for="specific-class-total" class="radio-label">לכיתה לצבירה כיתתית</label>
+      </div>
+      <div class="radio-button">
+        <input
+          type="radio"
+          id="specific-class-individual"
+          name="operationType"
+          value="specificClassIndividual"
+          [(ngModel)]="operationType"
+        />
+        <label for="specific-class-individual" class="radio-label">לכיתה לצבירה אישית</label>
+      </div>
+      <div class="radio-button">
+        <input
+          type="radio"
+          id="group-file"
+          name="operationType"
+          value="groupFile"
+          [(ngModel)]="operationType"
+        />
+        <label for="group-file" class="radio-label">העלאת קובץ</label>
+      </div>
+    </div>
   </div>
-  
+
+  <!-- טפסים מותאמים בהתאם לסוג הפעולה -->
+  <form *ngIf="operationType === 'specificStudent'" [formGroup]="individualForm" (ngSubmit)="onSubmitIndividual()">
+    <div class="form-group">
+      <label for="studentId">מספר תלמידה</label>
+      <input
+        type="text"
+        id="studentId"
+        class="form-control"
+        formControlName="studentId"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="points">נקודות להוספה</label>
+      <input
+        type="number"
+        id="points"
+        class="form-control"
+        formControlName="points"
+        required
+      />
+    </div>
+    <button type="submit" class="btn-turquoise">שלח</button>
+  </form>
+
+  <form *ngIf="operationType === 'specificClassTotal'" [formGroup]="classForm" (ngSubmit)="onSubmitClass()">
+    <div class="form-group">
+      <label for="className">שם הכיתה</label>
+      <input
+        type="text"
+        id="className"
+        class="form-control"
+        formControlName="className"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="points">נקודות להוספה</label>
+      <input
+        type="number"
+        id="points"
+        class="form-control"
+        formControlName="points"
+        required
+      />
+    </div>
+    <button type="submit" class="btn-turquoise">שלח</button>
+  </form>
+
+  <form *ngIf="operationType === 'specificClassIndividual'" [formGroup]="classForm" (ngSubmit)="onSubmitClass()">
+    <div class="form-group">
+      <label for="className">שם הכיתה</label>
+      <input
+        type="text"
+        id="className"
+        class="form-control"
+        formControlName="className"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="points">נקודות להוספה</label>
+      <input
+        type="number"
+        id="points"
+        class="form-control"
+        formControlName="points"
+        required
+      />
+    </div>
+    <button type="submit" class="btn-turquoise">שלח</button>
+  </form>
+
+  <form *ngIf="operationType === 'groupFile'" [formGroup]="groupForm" (ngSubmit)="onSubmitGroup()">
+    <div class="form-group">
+      <label class="custom-file-label">
+        <input
+          type="file"
+          class="form-control-file"
+          id="file"
+          name="file"
+          (change)="onFileChange($event)"
+          accept=".xlsx, .xls"
+        />
+        <span class="file-info">{{ selectedFile ? selectedFile.name : 'בחר קובץ' }}</span>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="points">נקודות להוספה</label>
+      <input
+        type="number"
+        class="form-control"
+        id="points"
+        formControlName="points"
+        required
+      />
+      <div *ngIf="groupForm.get('points')?.invalid" class="error-message">
+        יש להזין ערך תקין
+      </div>
+    </div>
+    <button type="submit" class="btn-turquoise">שלח</button>
+  </form>
+</div>
