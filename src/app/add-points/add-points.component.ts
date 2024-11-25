@@ -98,6 +98,25 @@ export class AddPointsComponent {
     );
   }
 
+  // פונקציה להוספת נקודות לכל תלמיד בכיתה
+  onSubmitAddPointsToClass(): void {
+    if (this.classForm.invalid) {
+      alert('נא למלא את כל השדות הנדרשים.');
+      return;
+    }
+
+    const { className, points } = this.classForm.value;
+    this.pointsService.addPointsToClass(className, points).subscribe(
+      (response) => {
+        alert('נקודות נוספו לכל תלמידי הכיתה בהצלחה!');
+      },
+      (error) => {
+        alert('אירעה שגיאה בהוספת הנקודות לתלמידים.');
+        console.error(error);
+      }
+    );
+  }
+  
   onSubmitGroup(): void {
     if (this.groupForm.invalid || !this.selectedFile) {
       alert('נא למלא את כל השדות הנדרשים ולהעלות קובץ.');

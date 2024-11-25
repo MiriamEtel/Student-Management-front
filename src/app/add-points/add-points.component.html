@@ -96,7 +96,7 @@
     <button type="submit" class="btn-turquoise">שלח</button>
   </form>
 
-  <form *ngIf="operationType === 'specificClassIndividual'" [formGroup]="classForm" (ngSubmit)="onSubmitClass()">
+  <form *ngIf="operationType === 'specificClassIndividual'" [formGroup]="classForm" (ngSubmit)="onSubmitAddPointsToClass()">
     <div class="form-group">
       <label for="className">שם הכיתה</label>
       <input
