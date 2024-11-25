@@ -43,7 +43,7 @@ export class LoginComponent {
       if (response.success) {
         this.userService.setIdNumber(this.id_number); // שמירת ה-id ב-UserService
         this.userService.setRole(response.role); // שמירת התפקיד ב-UserService
-        this.userService.setUserClass(response.user_class); // אם יש כיתה, שמירה של הכיתה
+        this.userService.setUserClass(response.class_name); // שמירת שם הכיתה
         this.loginStatus.emit(true); // שדר את הסטטוס של התחברות מוצלחת
         this.router.navigate(['/decoration-selection']);
       } else {

@@ -1,37 +1,26 @@
-<div class="class-points-container">
-    <h2 class="title">הנקודות של הכיתה</h2>
-  
-    <!-- הצגת סך הנקודות של הכיתה -->
-    <div class="class-summary">
-      <p class="total-points">סך כל הנקודות של הכיתה: {{classPoints}}</p> <!-- השתמש ב-classPoints במקום studentPoints -->
-      <div class="progress-bar">
-        <div class="progress" [style.width]="(classPoints / 1000) * 100 + '%'"></div> <!-- השתמש ב-classPoints במקום studentPoints -->
-      </div>
+<div class="points-container">
+  <h2 class="header">הנקודות של כיתה {{ className }}</h2>
+
+  <!-- הצגת מספר הנקודות -->
+  <div class="points-text">
+    <p>מספר הנקודות שהכיתה צברה: <strong>{{ totalClassPoints }}</strong></p>
+  </div>
+
+  <!-- הצגת הכוכבים -->
+  <div class="points-display">
+    <!-- הצגת נקודות זהב בשורה נפרדת -->
+    <div class="gold-row">
+      <div *ngFor="let gold of goldPointsArray" class="point gold"></div>
     </div>
-  
-    <!-- ציוני הדרך -->
-    <div class="milestones">
-      <h3>ציוני דרך</h3>
-      <ul>
-        <li *ngFor="let milestone of milestones" class="milestone-item">
-          <span class="milestone-description">{{milestone.description}} - הושג ב-{{milestone.points}} נקודות</span>
-        </li>
-      </ul>
-    </div>
-  
-    <!-- משוב אוטומטי לכיתה -->
-    <div class="feedback">
-      <p>{{feedbackMessage}}</p>
-    </div>
-  
-    <!-- הצגת הנקודות לפי פרויקטים -->
-    <div class="projects">
-      <h3>הנקודות לפי פרויקטים</h3>
-      <ul>
-        <li *ngFor="let project of projects" class="project-item">
-          <span>{{project.name}} - {{project.points}} נקודות</span>
-        </li>
-      </ul>
+
+    <!-- הצגת נקודות כסף בשורה נפרדת -->
+    <div class="silver-row">
+      <div *ngFor="let silver of silverPointsArray" class="point silver"></div>
     </div>
   </div>
-  
+
+  <!-- הודעת עידוד -->
+  <div *ngIf="bonusMessage" class="encouragement">
+    {{ bonusMessage }}
+  </div>
+</div>

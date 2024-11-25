@@ -21,15 +21,23 @@ export class StudentPointsService {
     return this.http.put<any>(`${this.apiUrl}/update-student-points/${studentId}`, { newPoints });
   }
 
-  // פונקציה לשליפת נקודות הכיתה
+     // שליפת נקודות כיתה לפי שם
   getClassPoints(className: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/class-points/${className}`);
+    const encodedClassName = encodeURIComponent(className);
+    return this.http.get<any>(`${this.apiUrl}/class-points/${encodedClassName}`);
   }
 
-  // פונקציה לעדכון נקודות הכיתה
-  updateClassPoints(className: string, points: number): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/update-class-points/${className}`, { points });
-  }
+// פונקציה לעדכון נקודות הכיתה
+updateClassPoints(className: string, points: number): Observable<any> {
+  const encodedClassName = encodeURIComponent(className);
+  return this.http.put<any>(`${this.apiUrl}/update-class-points/${encodedClassName}`, { points });
+}
+
+// פונקציה להוספת נקודות לכל תלמיד בכיתה
+addPointsToClass(className: string, points: number): Observable<any> {
+  const encodedClassName = encodeURIComponent(className);  // קידוד שם הכיתה
+  return this.http.put<any>(`${this.apiUrl}/add-points-to-class`, { className: encodedClassName, points });
+}
 
   // פונקציה להעלאת קובץ אקסל עם נקודות
   uploadExcelWithPoints(file: File, points: number): Observable<any> {
