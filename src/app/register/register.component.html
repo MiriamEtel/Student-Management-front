@@ -1,0 +1,48 @@
+<div class="register-container">
+    <div class="form-card">
+      <h2 class="form-title">הרשמה</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>תעודת זהות</mat-label>
+          <input matInput formControlName="id" type="text" placeholder="תעודת זהות (9 ספרות)" />
+          <mat-error *ngIf="registerForm.get('id')?.invalid">נא להזין תעודת זהות תקינה</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>שם חיבה</mat-label>
+          <input matInput formControlName="nickname" type="text" placeholder="שם חיבה" />
+          <mat-error *ngIf="registerForm.get('nickname')?.invalid">נא להזין שם חיבה</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>כיתה</mat-label>
+          <mat-select formControlName="className">
+            <mat-option *ngFor="let className of classes" [value]="className">
+              {{ className }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="registerForm.get('className')?.invalid">נא לבחור כיתה</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>תחום תרומה</mat-label>
+          <mat-select formControlName="activityField">
+            <mat-option *ngFor="let field of activityFields" [value]="field">
+              {{ field }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="registerForm.get('activityField')?.invalid">נא לבחור תחום</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>מספר טלפון</mat-label>
+          <input matInput formControlName="phone" type="text" placeholder="מספר טלפון" />
+          <mat-error *ngIf="registerForm.get('phone')?.invalid">נא להזין מספר טלפון תקין</mat-error>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit">הרשמה</button>
+        <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+    </div>
+  </div>
+  

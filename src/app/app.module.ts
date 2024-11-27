@@ -26,6 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -44,7 +45,8 @@ import { MatCardModule } from '@angular/material/card';
     ConfirmVoteDialogComponent,
     StudentPointsComponent,
     ClassPointsComponent,
-    AddPointsComponent, 
+    AddPointsComponent,
+    RegisterComponent, 
     
     
   ],
@@ -59,6 +61,7 @@ import { MatCardModule } from '@angular/material/card';
       { path: 'student-points', component: StudentPointsComponent }, // נקודות תלמיד
       { path: 'class-points', component: ClassPointsComponent }, // נקודות כיתה
       { path: 'add-points', component: AddPointsComponent },
+      { path: 'register', component: RegisterComponent },
 
 
     ]),

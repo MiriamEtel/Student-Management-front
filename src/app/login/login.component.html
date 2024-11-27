@@ -10,11 +10,15 @@
     <!-- כפתור התחברות -->
     <button (click)="login()" class="btn btn-primary">התחבר</button>
   </div>
-</div>
+    
+  </div>
 <div class="custom-alert" *ngIf="showAlert">
   <div class="custom-alert-content">
     <p>{{ alertMessage }}</p>
     <button (click)="closeAlert()">אישור</button>
   </div>
 </div>
-
+<p class="not-registered">
+  לא רשומה? 
+  <button (click)="navigateToRegister()" class="register-link">לחצי כאן להרשמה</button>
+</p>

@@ -54,4 +54,8 @@ export class LoginComponent {
       this.showCustomAlert('שם משתמש או תעודת זהות שגויים');
     });
   }
+  navigateToRegister(): void {
+    console.log('Navigating to register...');
+    this.router.navigate(['/register']);
+  }
 }
