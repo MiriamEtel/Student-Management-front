@@ -10,6 +10,8 @@ import { UserService } from './user.service';  // ייבוא UserService
 export class AppComponent implements OnInit {
   isLoggedIn: boolean = false;
   isAdmin: boolean = false; // משתנה לבדיקת אם המשתמש הוא מנהל
+  greetingMessage: string = '';
+  userName: string | null = null;// משתנה לשם המשתמש
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -18,6 +20,7 @@ export class AppComponent implements OnInit {
     if (idNumber) {
       this.isLoggedIn = true;
       this.checkUserRole(); // בדיקת תפקיד המשתמש
+      this.setGreeting();  // הצגת ברכה עם שם המשתמש
     }
   }
 
@@ -25,6 +28,7 @@ export class AppComponent implements OnInit {
     this.isLoggedIn = status;
     if (status) {
       this.checkUserRole(); // בדיקת תפקיד המשתמש לאחר התחברות
+      this.setGreeting();  // הצגת ברכה עם שם המשתמש
     }
   }
 
@@ -32,6 +36,22 @@ export class AppComponent implements OnInit {
     console.log('Role:', this.userService.getRole());  // הדפסת התפקיד
     this.isAdmin = this.userService.isAdmin();
   }
+
+  // פונקציה לחישוב הברכה בהתבסס על השעה
+  setGreeting() {
+    const hour = new Date().getHours();
+    if (hour < 12) {
+      this.greetingMessage = 'בוקר טוב';
+    } else if (hour < 18) {
+      this.greetingMessage = 'צהריים טובים';
+    } else {
+      this.greetingMessage = 'ערב טוב';
+    }
+
+    // כאן אנחנו מניחים שהשם נשמר ב-userService לאחר ההתחברות
+    this.userName = this.userService.getUserName(); // קבלת שם המשתמש מהשירות
+  }
+
   // פונקציה להתנתקות
   logout(): void {
     this.isLoggedIn = false;  // שינוי סטטוס ההתחברות ל-לא מחובר

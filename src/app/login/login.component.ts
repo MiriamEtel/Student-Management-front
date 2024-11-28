@@ -44,6 +44,7 @@ export class LoginComponent {
         this.userService.setIdNumber(this.id_number); // שמירת ה-id ב-UserService
         this.userService.setRole(response.role); // שמירת התפקיד ב-UserService
         this.userService.setUserClass(response.class_name); // שמירת שם הכיתה
+        this.userService.setUserName(response.name);
         this.loginStatus.emit(true); // שדר את הסטטוס של התחברות מוצלחת
         this.router.navigate(['/decoration-selection']);
       } else {

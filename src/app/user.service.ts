@@ -5,13 +5,25 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   private idNumber: string | null = null;
-  private userClass: string | null = null; // הוספת שדה לשמירת הכיתה
-  private role: string | null = null; // שדה לשמירת תפקיד המשתמש
+  private userClass: string | null = null;
+  private role: string | null = null;
+  private userName: string | null = null; // הוספת שדה לשם המשתמש
+
+  // פונקציה לשמירת שם המשתמש
+  setUserName(username: string) {
+    this.userName = username;
+    localStorage.setItem('user_name', username); // שמירת שם המשתמש ב-LocalStorage
+  }
+
+  // פונקציה לשליפת שם המשתמש
+  getUserName(): string | null {
+    return this.userName || localStorage.getItem('user_name');
+  }
 
   // פונקציה לשמירת ה-ID
   setIdNumber(idNumber: string) {
     this.idNumber = idNumber;
-    localStorage.setItem('id_number', idNumber); // שמירת ה-id ב-Local Storage
+    localStorage.setItem('id_number', idNumber);
   }
 
   // פונקציה לשליפת ה-ID
@@ -22,7 +34,7 @@ export class UserService {
   // פונקציה לשמירת שם הכיתה של המשתמש
   setUserClass(userClass: string) {
     this.userClass = userClass;
-    localStorage.setItem('user_class', userClass); // שמירת הכיתה ב-Local Storage
+    localStorage.setItem('user_class', userClass);
   }
 
   // פונקציה לשליפת שם הכיתה
@@ -33,13 +45,12 @@ export class UserService {
   // פונקציה לשמירת התפקיד של המשתמש
   setRole(role: string) {
     this.role = role;
-    localStorage.setItem('user_role', role); // שמירת התפקיד ב-Local Storage
+    localStorage.setItem('user_role', role);
   }
 
   // פונקציה לשליפת התפקיד של המשתמש
   getRole(): string {
-    // אם התפקיד לא נמצא בשירות, נשלוף אותו מ-LocalStorage, אחרת ברירת מחדל תהיה "student"
-    return this.role || localStorage.getItem('user_role') || 'student'; // ברירת מחדל "student"
+    return this.role || localStorage.getItem('user_role') || 'student';
   }
 
   // פונקציה לבדיקת אם המשתמש הוא מנהל
@@ -47,13 +58,15 @@ export class UserService {
     return this.getRole() === 'admin';
   }
 
-  // פונקציה למחיקת כל הנתונים של המשתמש (לשימוש בזמן התנתקות)
+  // פונקציה למחיקת כל הנתונים של המשתמש
   clearUserData() {
     this.idNumber = null;
     this.userClass = null;
     this.role = null;
+    this.userName = null;
     localStorage.removeItem('id_number');
     localStorage.removeItem('user_class');
     localStorage.removeItem('user_role');
+    localStorage.removeItem('user_name');
   }
 }
