@@ -49,7 +49,8 @@ export class AppComponent implements OnInit {
     }
 
     // כאן אנחנו מניחים שהשם נשמר ב-userService לאחר ההתחברות
-    this.userName = this.userService.getUserName(); // קבלת שם המשתמש מהשירות
+    const nickname = this.userService.getNickname(); // קבלת שם החיבה מהשירות
+    this.userName = nickname || this.userService.getUserName(); // אם יש שם חיבה, השתמש בו, אחרת השתמש בשם המלא
   }
 
   // פונקציה להתנתקות

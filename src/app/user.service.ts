@@ -7,17 +7,29 @@ export class UserService {
   private idNumber: string | null = null;
   private userClass: string | null = null;
   private role: string | null = null;
-  private userName: string | null = null; // הוספת שדה לשם המשתמש
+  private userName: string | null = null; // שמירה על השם המלא
+  private nickname: string | null = null; // שמירה על שם החיבה
 
-  // פונקציה לשמירת שם המשתמש
+  // פונקציה לשמירת שם המשתמש המלא
   setUserName(username: string) {
     this.userName = username;
     localStorage.setItem('user_name', username); // שמירת שם המשתמש ב-LocalStorage
   }
 
+  // פונקציה לשמירת שם החיבה
+  setNickname(nickname: string) {
+    this.nickname = nickname;
+    localStorage.setItem('nickname', nickname); // שמירת שם החיבה ב-LocalStorage
+  }
+
   // פונקציה לשליפת שם המשתמש
   getUserName(): string | null {
     return this.userName || localStorage.getItem('user_name');
+  }
+
+  // פונקציה לשליפת שם החיבה
+  getNickname(): string | null {
+    return this.nickname || localStorage.getItem('nickname');
   }
 
   // פונקציה לשמירת ה-ID
@@ -64,9 +76,11 @@ export class UserService {
     this.userClass = null;
     this.role = null;
     this.userName = null;
+    this.nickname = null; // מחיקת שם החיבה
     localStorage.removeItem('id_number');
     localStorage.removeItem('user_class');
     localStorage.removeItem('user_role');
     localStorage.removeItem('user_name');
+    localStorage.removeItem('nickname'); // מחיקת שם החיבה מ-LocalStorage
   }
 }

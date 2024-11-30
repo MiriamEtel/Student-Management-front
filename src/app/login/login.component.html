@@ -1,24 +1,41 @@
 <div class="login-container">
-  <h2 class="header">? עם מי הכבוד</h2>
-  <div class="form-container">
-    <!-- שדה עבור שם משתמש -->
+  <h2 class="header">{{ isRegister ? 'הרשמה' : '? עם מי הכבוד' }}</h2>
+  
+  <!-- טופס התחברות -->
+  <div *ngIf="!isRegister" class="form-container">
     <input type="text" [(ngModel)]="username" class="input-field" placeholder="שם משתמש" required />
-
-    <!-- שדה עבור מספר תעודת זהות -->
     <input type="text" [(ngModel)]="id_number" class="input-field" placeholder="מספר תעודת זהות" required />
-
-    <!-- כפתור התחברות -->
     <button (click)="login()" class="btn btn-primary">התחבר</button>
   </div>
+
+  <!-- טופס הרשמה -->
+  <div *ngIf="isRegister" class="form-container">
+    <input type="text" [(ngModel)]="nickname" class="input-field" placeholder="שם ומשפחה " required />
+    <input type="text" [(ngModel)]="id_number" class="input-field" placeholder="מספר תעודת זהות" required />
+    <input type="text" [(ngModel)]="className" class="input-field" placeholder="כיתה" required />
+    <select [(ngModel)]="donationField" class="input-field" required>
+      <option value="">בחרי את תחום הפעילות המעודף עליך</option>
+      <option *ngFor="let field of donationFields" [value]="field">{{ field }}</option>
+    </select>
+    <input type="text" [(ngModel)]="phone" class="input-field" placeholder=" מספר טלפון זמין" required />
     
+    <button (click)="register()" class="btn btn-primary">הרשמה</button>
   </div>
-<div class="custom-alert" *ngIf="showAlert">
-  <div class="custom-alert-content">
-    <p>{{ alertMessage }}</p>
-    <button (click)="closeAlert()">אישור</button>
+
+  <div class="custom-alert" *ngIf="showAlert">
+    <div class="custom-alert-content">
+      <p>{{ alertMessage }}</p>
+      <button (click)="closeAlert()">אישור</button>
+    </div>
   </div>
+
+  <!-- לינק לשינוי בין התחברות להרשמה -->
+  <p class="not-registered">
+    <span *ngIf="!isRegister">? עדין לא רשומה
+      <button (click)="toggleRegister()" class="register-link">לחצי כאן להרשמה</button>
+    </span>
+    <span *ngIf="isRegister">? נרשמת כבר
+      <button (click)="toggleRegister()" class="register-link">לחצי כאן להתחברות</button>
+    </span>
+  </p>
 </div>
-<p class="not-registered">
-  לא רשומה? 
-  <button (click)="navigateToRegister()" class="register-link">לחצי כאן להרשמה</button>
-</p>
