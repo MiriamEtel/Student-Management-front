@@ -36,9 +36,11 @@
 }
 /* greeting.component.scss */
 .greeting {
-  position: fixed; /* מיקום קבוע בצד שמאל של המסך */
+  position: absolute; /* מיקום יחסי בתוך הקונטיינר */
   top: 20px; /* רווח עליון */
-  left: 20px; /* רווח צדדי */
+  left: 20px; /* רווח מהצד השמאלי */
+  width: auto; /* רוחב אוטומטי שמתאים לתוכן */
+  max-width: 300px; /* מגבלה לרוחב ההודעה */
   background: linear-gradient(135deg, #8e5a3d, #5d470a); /* גרדיאנט חום */
   color: white; /* צבע טקסט לבן */
   font-size: 20px; /* גודל גופן בינוני */
@@ -46,9 +48,11 @@
   padding: 20px 30px; /* ריפוד פנימי */
   border-radius: 10px; /* פינות מעוגלות */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* הצללה עדינה */
-  z-index: 999; /* להבטיח שההודעה תופיע מעל כל שאר האלמנטים */
+  z-index: 999; /* להבטיח שהיא תופיע מעל אלמנטים אחרים */
   transition: transform 0.3s ease, opacity 0.3s ease; /* אנימציה רכה */
 }
+
+
 
 .greeting p {
   margin: 0; /* ביטול רווחים פנימיים */

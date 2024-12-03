@@ -10,6 +10,7 @@ import { UserService } from './user.service';  // ייבוא UserService
 export class AppComponent implements OnInit {
   isLoggedIn: boolean = false;
   isAdmin: boolean = false; // משתנה לבדיקת אם המשתמש הוא מנהל
+  isStudent: boolean = false;
   greetingMessage: string = '';
   userName: string | null = null;// משתנה לשם המשתמש
 
@@ -33,10 +34,11 @@ export class AppComponent implements OnInit {
   }
 
   checkUserRole() {
-    console.log('Role:', this.userService.getRole());  // הדפסת התפקיד
-    this.isAdmin = this.userService.isAdmin();
+    const role = this.userService.getRole();
+    console.log('Role:', role); // הדפסת התפקיד
+    this.isAdmin = role === 'admin';
+    this.isStudent = role === 'student'; // בדיקה אם התפקיד הוא תלמיד
   }
-
   // פונקציה לחישוב הברכה בהתבסס על השעה
   setGreeting() {
     const hour = new Date().getHours();
@@ -49,8 +51,8 @@ export class AppComponent implements OnInit {
     }
 
     // כאן אנחנו מניחים שהשם נשמר ב-userService לאחר ההתחברות
-    const nickname = this.userService.getNickname(); // קבלת שם החיבה מהשירות
-    this.userName = nickname || this.userService.getUserName(); // אם יש שם חיבה, השתמש בו, אחרת השתמש בשם המלא
+    this.userName = this.userService.getUserName(); // קבלת שם המשתמש מהשירות
+  
   }
 
   // פונקציה להתנתקות
