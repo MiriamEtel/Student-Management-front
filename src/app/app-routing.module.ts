@@ -9,6 +9,8 @@ import { StudentPointsComponent } from './student-points/student-points.componen
 import { ClassPointsComponent } from './class-points/class-points.component';  
 import { AddPointsComponent } from './add-points/add-points.component';
 import { RegisterComponent } from './register/register.component';
+import { NewOptionsComponent } from './new-options/new-options.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,6 +22,7 @@ const routes: Routes = [
   { path: 'class-points', component: ClassPointsComponent },  
   { path: 'add-points', component: AddPointsComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'new-options', component: NewOptionsComponent },
 ];
 
 @NgModule({

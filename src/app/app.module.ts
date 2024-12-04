@@ -27,6 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { RegisterComponent } from './register/register.component';
+import { NewOptionsComponent } from './new-options/new-options.component';
 
 
 
@@ -46,7 +47,8 @@ import { RegisterComponent } from './register/register.component';
     StudentPointsComponent,
     ClassPointsComponent,
     AddPointsComponent,
-    RegisterComponent, 
+    RegisterComponent,
+    NewOptionsComponent, 
     
     
   ],
@@ -62,6 +64,7 @@ import { RegisterComponent } from './register/register.component';
       { path: 'class-points', component: ClassPointsComponent }, // נקודות כיתה
       { path: 'add-points', component: AddPointsComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'new-options', component: NewOptionsComponent },
 
 
     ]),

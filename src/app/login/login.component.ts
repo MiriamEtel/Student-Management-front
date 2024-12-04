@@ -66,7 +66,7 @@ export class LoginComponent {
           this.userService.setUserName(response.name);
           this.userService.setNickname(response.nickname);
           this.loginStatus.emit(true);
-          this.router.navigate(['/decoration-selection']);
+          this.router.navigate(['/new-options']);
         } else {
           this.showCustomAlert('שם משתמש או תעודת זהות שגויים');
         }
