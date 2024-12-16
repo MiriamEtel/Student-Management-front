@@ -43,7 +43,10 @@ export class LoginComponent {
   }
 
   sanitizeInput(input: string): string {
-    return input.trim().replace(/\s+/g, ' ');
+    return input
+      .normalize('NFKC') // מנרמל את הטקסט לפורמט אחיד
+      .replace(/[\u200B-\u200D\uFEFF]/g, '') // מסיר תווים בלתי נראים כמו ZERO WIDTH
+      .trim(); // מסיר רווחים מיותרים
   }
 
   login() {
