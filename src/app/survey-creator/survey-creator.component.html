@@ -1,0 +1,76 @@
+<head>
+    <!-- הוספת Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  </head>
+  
+<div class="container mt-5">
+    <h2 class="text-center mb-4 text-primary">📝 צור סקר חדש</h2>
+    <form [formGroup]="surveyForm" (ngSubmit)="createSurvey()" class="p-5 border rounded shadow-lg bg-light">
+      
+      <!-- שם הסקר -->
+      <div class="mb-4">
+        <label for="surveyName" class="form-label fw-bold text-secondary">שם הסקר:</label>
+        <input id="surveyName" type="text" class="form-control" formControlName="surveyName" placeholder="הכנס שם לסקר">
+      </div>
+  
+      <!-- Accordion של שאלות -->
+      <div class="accordion" id="questionsAccordion">
+        <div class="accordion-item" *ngFor="let question of questions.controls; let i = index">
+          <h2 class="accordion-header" [id]="'heading' + i">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="true" [attr.aria-controls]="'collapse' + i">
+              שאלה {{ i + 1 }}
+            </button>
+          </h2>
+          <div [id]="'collapse' + i" class="accordion-collapse collapse show" [attr.aria-labelledby]="'heading' + i" data-bs-parent="#questionsAccordion">
+            <div class="accordion-body">
+              <!-- שאלה -->
+              <div [formGroupName]="i" class="mb-4">
+                <label class="form-label fw-bold text-secondary">שאלה:</label>
+                <input type="text" class="form-control mb-3" formControlName="questionTitle" placeholder="הכנס את השאלה">
+                
+                <!-- סוג השאלה -->
+                <label class="form-label fw-bold text-secondary">סוג השאלה:</label>
+                <select class="form-select mb-3" formControlName="questionType">
+                  <option value="singleChoice">תשובה בודדת</option>
+                  <option value="multipleChoice">מספר תשובות</option>
+                  <option value="rating">דירוג</option>
+                </select>
+  
+                <!-- תשובות אפשריות -->
+                <div *ngIf="isChoiceQuestion(i)">
+                  <label class="form-label fw-bold text-secondary">תשובות אפשריות:</label>
+                  <div formArrayName="options" *ngFor="let option of getOptions(i).controls; let j = index">
+                    <div [formGroupName]="j" class="d-flex align-items-center mb-3">
+                      <input type="text" class="form-control me-2" formControlName="optionText" placeholder="תשובה {{ j + 1 }}">
+                      <button type="button" class="btn btn-danger btn-sm" (click)="removeOption(i, j)">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-success btn-sm" (click)="addOption(i)">
+                    <i class="bi bi-plus-circle"></i> הוסף תשובה
+                  </button>
+                </div>
+              </div>
+              
+              <!-- כפתור מחיקת שאלה -->
+              <button type="button" class="btn btn-outline-danger btn-sm w-100 mt-3" (click)="removeQuestion(i)">
+                <i class="bi bi-trash"></i> מחק שאלה
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- כפתור הוספת שאלה -->
+      <button type="button" class="btn btn-primary w-100 mt-4" (click)="addQuestion()">
+        <i class="bi bi-plus-circle"></i> הוסף שאלה
+      </button>
+  <br>
+      <!-- כפתור יצירת סקר -->
+      <button type="submit" class="btn btn-success w-100 mt-4">
+        <i class="bi bi-check-circle"></i> צור סקר
+      </button>
+    </form>
+  </div>
+  

@@ -49,10 +49,19 @@ export class StudentPointsComponent implements OnInit {
   }
 
   generateEncouragementMessage(): void {
-    if (this.totalPoints > 0 && this.totalPoints % 5 === 0) {
-      this.bonusMessage = `מזל טוב! צברת ${this.totalPoints} נקודות 🎉`;
+    if (this.totalPoints > 0) {
+      if (this.totalPoints <= 10) {
+        this.bonusMessage = "! כל הכבוד";
+      } else if (this.totalPoints > 10 && this.totalPoints <= 20) {
+        this.bonusMessage = "! לכי גבוה יש לך למה";
+      } else if (this.totalPoints > 20 && this.totalPoints <= 30) {
+        this.bonusMessage = "! טוב יותר ועוד יותר , ועוד";
+      } else {
+        this.bonusMessage = "!יופי! יש לך לאן להתקדם";
+      }
     } else {
       this.bonusMessage = null;
     }
   }
+  
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserService } from './user.service';  // ייבוא UserService
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,37 +9,43 @@ import { UserService } from './user.service';  // ייבוא UserService
 })
 export class AppComponent implements OnInit {
   isLoggedIn: boolean = false;
-  isAdmin: boolean = false; // משתנה לבדיקת אם המשתמש הוא מנהל
+  isAdmin: boolean = false;
   isStudent: boolean = false;
   greetingMessage: string = '';
-  userName: string | null = null;// משתנה לשם המשתמש
-
-  constructor(private router: Router, private userService: UserService) {}
+  userName: string | null = null;
+  selectedComponentImage: string = '/assets/images/new-bg.png'; // תמונה ברירת מחדל
+  componentTitle :string =''
+  constructor(private router: Router, private userService: UserService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     const idNumber = this.userService.getIdNumber();
     if (idNumber) {
       this.isLoggedIn = true;
-      this.checkUserRole(); // בדיקת תפקיד המשתמש
-      this.setGreeting();  // הצגת ברכה עם שם המשתמש
+      this.checkUserRole();
+      this.setGreeting();
     }
+    
+    // עדכון התמונה בהתאם לנתיב הנוכחי
+    this.router.events.subscribe(() => {
+      this.updateComponentImage();
+    });
   }
 
   onLoginStatusChange(status: boolean) {
     this.isLoggedIn = status;
     if (status) {
-      this.checkUserRole(); // בדיקת תפקיד המשתמש לאחר התחברות
-      this.setGreeting();  // הצגת ברכה עם שם המשתמש
+      this.checkUserRole();
+      this.setGreeting();
     }
   }
 
   checkUserRole() {
     const role = this.userService.getRole();
-    console.log('Role:', role); // הדפסת התפקיד
+    console.log('Role:', role);
     this.isAdmin = role === 'admin';
-    this.isStudent = role === 'student'; // בדיקה אם התפקיד הוא תלמיד
+    this.isStudent = role === 'student';
   }
-  // פונקציה לחישוב הברכה בהתבסס על השעה
+
   setGreeting() {
     const hour = new Date().getHours();
     if (hour < 12) {
@@ -50,16 +56,31 @@ export class AppComponent implements OnInit {
       this.greetingMessage = 'ערב טוב';
     }
 
-    // כאן אנחנו מניחים שהשם נשמר ב-userService לאחר ההתחברות
-    this.userName = this.userService.getUserName(); // קבלת שם המשתמש מהשירות
-  
+    this.userName = this.userService.getUserName();
   }
 
-  // פונקציה להתנתקות
+  updateComponentImage() {
+    const currentRoute = this.router.url;
+
+    // קביעת התמונה לפי הנתיב הנוכחי
+    if (currentRoute.includes('new-options')) {
+      this.selectedComponentImage = '/assets/images/new-bg.png';
+      this.componentTitle = '? מה חדש';
+    } else if (currentRoute.includes('class-points')) {
+      this.selectedComponentImage = '/assets/images/class-bg.png';
+      this.componentTitle = 'אזור כיתתי';
+    } else if (currentRoute.includes('student-points')) {
+      this.selectedComponentImage = '/assets/images/personal-bg.png';
+      this.componentTitle = 'אזור אישי';
+    } else {
+      this.selectedComponentImage = '/assets/images/new-bg.png';
+    }
+  }
+
   logout(): void {
-    this.isLoggedIn = false;  // שינוי סטטוס ההתחברות ל-לא מחובר
-    this.isAdmin = false; // איפוס תפקיד המשתמש
-    this.userService.clearUserData(); // איפוס הנתונים של המשתמש
-    this.router.navigate(['/']);   // ניווט לדף הלוגין
+    this.isLoggedIn = false;
+    this.isAdmin = false;
+    this.userService.clearUserData();
+    this.router.navigate(['/']);
   }
 }

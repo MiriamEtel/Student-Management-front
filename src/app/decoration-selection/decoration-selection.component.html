@@ -6,7 +6,12 @@
       <div class="decoration-name">{{ decoration.class_name }}</div>
       <img [src]="decoration.image_url" alt="{{ decoration.class_name }}" class="decoration-image"/>
       <div class="decoration-details">
-        <button (click)="selectDecoration(decoration)" class="btn btn-success" [disabled]="hasVoted">בחר</button>
+        <button
+        (click)="selectDecoration(decoration)"
+        class="btn-circle"
+        [disabled]="hasVoted"
+        aria-label="בחר קישוט"
+      ></button>
       </div>
     </div>
   </div>

@@ -1,21 +1,27 @@
 <div class="points-container">
-  <h2 class="header">הנקודות של כיתה {{ className }}</h2>
+  <h2 class="header">כיתה {{ className }}</h2>
 
   <!-- הצגת מספר הנקודות -->
   <div class="points-text">
-    <p>מספר הנקודות שהכיתה צברה: <strong>{{ totalClassPoints }}</strong></p>
+    <p class="points-label">:מספר הנקודות שצברתן</p>
+    <p class="points-value">{{ totalClassPoints }}</p>
+  
   </div>
 
   <!-- הצגת הכוכבים -->
   <div class="points-display">
-    <!-- הצגת נקודות זהב בשורה נפרדת -->
+    <!-- שורת כוכבי זהב -->
     <div class="gold-row">
-      <div *ngFor="let gold of goldPointsArray" class="point gold"></div>
+      <div *ngFor="let gold of goldPointsArray" class="point">
+        <img src="assets/icons/pink-star.svg" alt="Gold Star" class="star-icon" />
+      </div>
     </div>
 
-    <!-- הצגת נקודות כסף בשורה נפרדת -->
+    <!-- שורת כוכבי כסף -->
     <div class="silver-row">
-      <div *ngFor="let silver of silverPointsArray" class="point silver"></div>
+      <div *ngFor="let silver of silverPointsArray" class="point">
+        <img src="assets/icons/blue-star.svg" alt="Silver Star" class="star-icon" />
+      </div>
     </div>
   </div>
 

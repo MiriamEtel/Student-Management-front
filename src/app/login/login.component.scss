@@ -1,109 +1,245 @@
-/* רקע התמונה לכל המסך */
-body {
-  background-image: url('/assets/background.jpg');
-  background-size: cover;
+$overlay-bg: rgba(36, 72, 118, 0.8);
+$form-bg: #FFD3ED;
+$blue-color: #246876;
+$white: #FFFFFF;
+
+@font-face {
+  font-family: 'SE_shilgiya';
+  src: url('/assets/fonts/SE_shilgiya - short.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* מסך הרקע הראשי */
+.main-background {
+  background-image: url('/assets/images/welcome-bg.png'); /* תמונת הרקע */
+  background-size: cover; /* מכסה את כל הרקע */
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  height: 100vh; /* גובה מלא של המסך */
+  width: 100%; /* רוחב מלא */
+  position: relative; /* מאפשר מיקום יחסי של התוכן */
+
+  .content {
+    position: absolute; /* מיקוד במיקום יחסית להורה */
+    bottom: 7%; /* ממקם בשליש התחתון */
+    left: 50%; /* מרכז אופקית */
+    transform: translateX(-50%); /* ממרכז אופקית */
+    text-align: center;
+    font-family: 'Heebo', sans-serif;
+    color: #246876; /* צבע טקסט כחול כהה */
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: normal;
+      line-height: 1.1; /* ריווח קטן בין השורות */
+      margin-bottom: 10px;
+
+      .bold-text {
+        font-weight: bold; /* "מקום של כבוד" בבולד */
+      }
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      line-height: 1.1; /* ריווח קטן בין שורות תת-הכותרת */
+    }
+
+    .icon-with-circle {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      margin: 20px auto;
+
+      .circle-svg {
+        width: 100%;
+        height: auto;
+      }
+
+      .inner-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 50px; /* רווח בינוני בין הכפתורים */
+      margin-top: 25px; /* רווח מהאלמנט מעל הכפתורים */
+    
+      .main-button {
+        background: #FFD3ED; /* רקע ורוד */
+        color: #246876; /* צבע טקסט */
+        border: 2px solid #246876; /* גבול כחול כהה */
+        border-radius: 10px; /* פינות מעוגלות */
+        padding: 15px 85px; /* ריווח פנימי - יוצר גובה ורוחב */
+        font-size: 1.6rem; /* גודל טקסט */
+        font-weight: bold; /* טקסט מודגש */
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        min-width: 180px; /* כפתור מעט צר יותר */
+        text-align: center;
+    
+        &:hover {
+          transform: scale(1.05); /* הגדלה קלה בהובר */
+        }
+      }
+    }    
+  }
+ }
+
+    
 
 
 
-/* עיצוב משופר לריבוע הלוגין */
-.login-container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #ffffff; /* רקע לבן מלא */
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* הצללה חזקה יותר */
-  text-align: center;
-}
-
-/* עיצוב לכותרת */
-.header {
-  font-size: 28px; /* גודל טקסט מוגדל */
-  margin-bottom: 20px;
-  color: #5d470a;
-  font-weight: bold;
-}
-
-/* עיצוב למיכל הטופס */
-.form-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* ריווח בין האלמנטים */
-}
-
-/* עיצוב לשדות הקלט */
-.input-field {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: border-color 0.3s;
-}
-
-.input-field:focus {
-  border-color: #a07c19;
-  outline: none;
-}
-
-/* עיצוב לכפתור */
-.btn {
-  padding: 12px;
-  background-color: #5b460c;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #a07c19;
-}
-
-.custom-alert {
+/* שכבת הטופס */
+.overlay {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #721c24; /* צבע טקסט */
-  padding: 20px 30px;
-  border-radius: 8px;
-  width: 90%; /* עיצוב רספונסיבי */
-  max-width: 400px;
-  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(12, 51, 68, 0.64); /* צבע הרקע השקוף */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* הצללה קלה */
+
+  .form-popup {
+    background: #FFD3ED; /* צבע רקע ורוד */
+    border-radius: 20px; /* פינות מעוגלות */
+    padding: 60px 30px 40px; /* ריווח פנימי גדול */
+    text-align: center;
+    width: 90%; /* הריבוע תופס יותר רוחב */
+    max-width: 600px; /* הריבוע רחב יותר */
+    position: relative;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* צל עדין */
+
+    /* אייקון עם עיגול */
+    .icon-with-circle {
+      position: absolute;
+      top: +15px; /* נמוך יותר בתוך הריבוע */
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 80px;
+      height: 80px;
+      z-index: 10;
+
+      .circle-svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .inner-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    /* כותרות */
+    .form-title {
+      color: #246876;
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-top: 40px; /* מוסיף מרווח למטה מהאייקון */
+      margin-bottom: 5px; /* פחות רווח מתחת לכותרת */
+      line-height: 1.2; /* שומר על צפיפות נכונה של השורות */
+    }
+    
+    .form-subtitle {
+      color: #246876;
+      font-family: 'SE_shilgiya', sans-serif;
+      font-size: 2.2rem;
+      margin-top: 10px; /* רווח קטן מעל המשפט השני */
+      margin-bottom: 20px; /* פחות רווח מתחת */
+      line-height: 1.1;
+    }
+    
+    
+
+    /* טופס - שדות */
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px; /* רווחים גדולים יותר בין הרכיבים */
+
+      .input-field {
+        background: #FFFFFF;
+        border: none;
+        border-radius: 15px;
+        padding: 15px 20px;
+        font-size: 1.3rem;
+        color: #246876;
+        text-align: right;
+        direction: rtl;
+        width: 90%; /* צר יותר */
+        margin: 0 auto;
+
+        &::placeholder {
+          color: #A0A0A0;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    /* כפתור */
+    .form-button {
+      background: #E382C1; /* צבע ורוד כהה */
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      padding: 15px 30px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: 35%; /* כפתור רחב יותר */
+      margin: 100px auto 10px; /* מרווח גדול יותר מהשדה טקסט */
+
+      &:hover {
+        background: darken(#E382C1, 10%);
+      }
+    }
+
+    /* כפתור סגירה */
+    .close-button {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: #246876;
+      cursor: pointer;
+    }
+  }
 }
 
-.custom-alert-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
-  text-align: center;
+
+app-virtual-keyboard.show {
+  display: block; /* ודא שהמקלדת מוצגת */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* על המקלדת להיות מעל שאר האלמנטים */
 }
 
-.custom-alert-content p {
-  margin: 0 0 20px;
-}
 
-.custom-alert button {
-  background-color: #721c24;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 6px 12px;
-  cursor: pointer;
-  margin-top: 15px;
-}
-//עיצוב הלינק להרשמה 
+
+
+
 

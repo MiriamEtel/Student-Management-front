@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Heebo';
+  src: url('/assets/fonts/Heebo/Heebo-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* הגדרת הטווח של משקלי הגופן */
+  font-style: normal;
+}
 .navigation-buttons {
   display: flex;
   gap: 20px;
@@ -37,12 +43,13 @@
 /* greeting.component.scss */
 .greeting {
   position: absolute; /* מיקום יחסי בתוך הקונטיינר */
-  top: 20px; /* רווח עליון */
-  left: 20px; /* רווח מהצד השמאלי */
+  top: 4%; /* רווח עליון */
+  left: 4%; /* רווח מהצד השמאלי */
   width: auto; /* רוחב אוטומטי שמתאים לתוכן */
-  max-width: 300px; /* מגבלה לרוחב ההודעה */
-  background: linear-gradient(135deg, #8e5a3d, #5d470a); /* גרדיאנט חום */
-  color: white; /* צבע טקסט לבן */
+  max-width: 40%; /* מגבלה לרוחב ההודעה */
+  background-color: rgba(255, 255, 255, 0.7); /* רקע לבן ב-70% שקיפות */
+  color: #246876; /* צבע טקסט */
+  font-family: 'Heebo', sans-serif;
   font-size: 20px; /* גודל גופן בינוני */
   font-weight: bold; /* הדגשת הגופן */
   padding: 20px 30px; /* ריפוד פנימי */
@@ -51,9 +58,6 @@
   z-index: 999; /* להבטיח שהיא תופיע מעל אלמנטים אחרים */
   transition: transform 0.3s ease, opacity 0.3s ease; /* אנימציה רכה */
 }
-
-
-
 .greeting p {
   margin: 0; /* ביטול רווחים פנימיים */
   font-size: 1.2rem; /* גודל גופן דינמי */
@@ -74,5 +78,86 @@
 @keyframes bounce {
   0% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #DB97C2; /* רקע ורוד */
+  height: 122.97px; /* גובה */
+  width: 100%; /* רוחב מלא */
+  position: fixed;
+  bottom: 0; /* מקבע לתחתית המסך */
+  left: 0;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2); /* צל מעל התפריט */
+  z-index: 1000;
+}
+
+.footer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* רקע שקוף */
+  border: none;
+  color: white; /* צבע האייקון לבן */
+  font-size: 24px; /* גודל האייקון */
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s ease, background-color 0.3s ease; /* מעבר צבע חלק */
+}
+
+.footer-btn img {
+  width: 30px; /* גודל האייקון */
+  height: 30px;
+  transition: filter 0.3s ease;
+}
+
+.footer-btn:hover,
+.footer-btn:focus,
+.footer-btn.active {
+  color: #134973; /* צבע הכחול כאשר יש hover, focus או active */
+  background-color: transparent; /* אין שינוי ברקע */
+}
+
+.footer-btn:hover img,
+.footer-btn:focus img,
+.footer-btn.active img {
+  filter: brightness(0) saturate(100%) invert(31%) sepia(70%) saturate(385%) hue-rotate(165deg) brightness(94%) contrast(92%); /* אפקט של צבע כחול על האייקון */
+}
+.header-container {
+  position: relative;
+}
+.header-image {
+  width: 100%;
+  height: auto; /* התמונה תתאם את הגובה באופן אוטומטי */
+  overflow: hidden; /* למנוע יציאת התמונה מגבולות האלמנט */
+  margin: 0 auto;
+}
+
+.header-image img {
+  width: 100%;
+  height: auto; /* התמונה תתאים באופן אוטומטי */
+  object-fit: cover; /* התמונה תכסה את כל החלל בלי לעוות */
+}
+.component-name-box {
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* למרכז את האלמנט באופן אופקי */
+  transform: translateX(-50%); /* כדי למרכז אותו בצורה מדויקת */
+  width: 76%; /* רוחב המלבן 70% מהרוחב הכולל */
+  height:134px ;
+  background-image: url('/assets/icons/header.svg'); /* הרקע שהורדת מפיגמה */
+  background-size: cover; /* לוודא שהרקע יתפוס את כל המלבן */
+  background-position: center; /* למרכז את הרקע בתוך המלבן */
+  padding: 15px;
+  text-align: center;
+  color:#FFFFFF;
+  font-family: 'Heebo', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  border-top-left-radius: 20px; /* עיגול רק בחלק העליון השמאלי */
+  border-top-right-radius: 20px; /* עיגול רק בחלק העליון הימני */
+  z-index: 10; /* שימנע שהוא יכוסה על ידי תוכן אחר */
 }
 

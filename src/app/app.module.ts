@@ -28,6 +28,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { RegisterComponent } from './register/register.component';
 import { NewOptionsComponent } from './new-options/new-options.component';
+import { SurveyCreatorComponent } from './survey-creator/survey-creator.component';
+import { VirtualKeyboardComponent } from './virtual-keyboard/virtual-keyboard.component';
 
 
 
@@ -48,7 +50,9 @@ import { NewOptionsComponent } from './new-options/new-options.component';
     ClassPointsComponent,
     AddPointsComponent,
     RegisterComponent,
-    NewOptionsComponent, 
+    NewOptionsComponent,
+    SurveyCreatorComponent,
+    VirtualKeyboardComponent,
     
     
   ],
@@ -56,6 +60,7 @@ import { NewOptionsComponent } from './new-options/new-options.component';
     BrowserModule,
     RouterModule.forRoot([
       { path: '', component: LoginComponent },  // מסך כניסה
+      { path: 'login', component: LoginComponent },
       { path: 'decoration-selection', component: DecorationSelectionComponent },  // בחירת קישוט לתלמיד
       { path: 'add-student', component: AddStudentComponent },  // הוספת תלמיד
       { path: 'upload-decoration', component: UploadDecorationComponent },  // העלאת קישוט
@@ -65,7 +70,8 @@ import { NewOptionsComponent } from './new-options/new-options.component';
       { path: 'add-points', component: AddPointsComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'new-options', component: NewOptionsComponent },
-
+      { path: 'survey-creator', component: SurveyCreatorComponent },
+      { path: 'virtual-keyboard', component: VirtualKeyboardComponent },
 
     ]),
     FormsModule ,

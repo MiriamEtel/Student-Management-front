@@ -1,0 +1,54 @@
+<main class="welcome-container" role="main">
+    <section class="welcome-content">
+      <img
+        [src]="assets.backgroundImage"
+        class="background-image"
+        alt=""
+        loading="lazy"
+        aria-hidden="true"
+      />
+      <div class="content-wrapper">
+        <h1 class="welcome-heading">
+          {{ config.headingText }}
+          <br />
+          <span class="highlight-text">
+            {{ config.highlightText }}
+          </span>
+          <br />
+          <span class="subheading">
+            {{ config.subheadingText }}
+          </span>
+        </h1>
+  
+        <div class="icon-container" aria-hidden="true">
+          <img
+            [src]="assets.iconPrimary"
+            class="icon-primary"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            [src]="assets.iconSecondary"
+            class="icon-secondary"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+  
+        <nav class="action-buttons" role="navigation">
+          <button 
+            class="welcome-button"
+            (click)="onLogin()"
+            aria-label="כניסה">
+            {{ config.loginButtonText }}
+          </button>
+          <button 
+            class="welcome-button"
+            (click)="onRegister()"
+            aria-label="רישום">
+            {{ config.registerButtonText }}
+          </button>
+        </nav>
+      </div>
+    </section>
+  </main>

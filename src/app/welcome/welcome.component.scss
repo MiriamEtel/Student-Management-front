@@ -1,0 +1,138 @@
+.welcome-container {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+  
+  .welcome-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 1920px;
+    width: 100%;
+    align-items: center;
+    padding: 1397px 80px 138px;
+  }
+  
+  .background-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .content-wrapper {
+    position: relative;
+    display: flex;
+    margin-bottom: -28px;
+    width: 705px;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .welcome-heading {
+    color: rgb(24, 112, 150);
+    text-align: center;
+    font: 400 51px/51px Heebo, sans-serif;
+    margin: 0;
+  }
+  
+  .highlight-text {
+    font-weight: 800;
+    color: rgb(24, 112, 150);
+    display: inline-block;
+  }
+  
+  .subheading {
+    font-size: 24px;
+    line-height: 40px;
+    color: rgb(24, 112, 150);
+    display: inline-block;
+  }
+  
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 50%;
+    position: relative;
+    aspect-ratio: 0.988;
+    margin: 19px 0;
+    width: 84px;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 17px;
+  }
+  
+  .icon-secondary {
+    aspect-ratio: 0.8;
+    object-fit: contain;
+    object-position: center;
+    width: 20px;
+  }
+  
+  .action-buttons {
+    align-self: stretch;
+    display: flex;
+    margin-top: 49px;
+    gap: 40px 65px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .welcome-button {
+    border-radius: 16px;
+    background-color: rgb(255, 211, 237);
+    flex-grow: 1;
+    width: fit-content;
+    padding: 18px 70px;
+    border: 2px solid rgb(36, 104, 118);
+    color: rgb(36, 104, 118);
+    font: 600 34px Heebo, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  
+    &:focus-visible {
+      outline: 3px solid rgb(36, 104, 118);
+      outline-offset: 2px;
+    }
+  
+    &:hover {
+      background-color: rgb(255, 190, 228);
+      transform: translateY(-2px);
+    }
+  
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .welcome-content {
+      max-width: 100%;
+      padding: 100px 20px;
+    }
+  
+    .content-wrapper {
+      margin-bottom: 10px;
+    }
+  
+    .welcome-heading {
+      font-size: 40px;
+      line-height: 44px;
+    }
+  
+    .action-buttons {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  
+    .welcome-button {
+      padding: 18px 20px;
+    }
+  }

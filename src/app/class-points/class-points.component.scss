@@ -1,161 +1,100 @@
-/* כללי - עיצוב של הכל */
+/* כללי - עיצוב הקונטיינר */
+@font-face {
+  font-family: 'SE_shilgiya';
+  src: url('/assets/fonts/SE_shilgiya - short.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Heebo';
+  src: url('/assets/fonts/Heebo/Heebo-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* הגדרת הטווח של משקלי הגופן */
+  font-style: normal;
+}
 .points-container {
-    width: 85%;
-    margin: 50px auto;
-    text-align: center;
-    padding: 40px;
-    background: linear-gradient(135deg, #f7f7f7, #e0e0e0);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    font-family: 'Roboto', sans-serif;
-    overflow: hidden;
-  }
-  
-  /* כותרת */
-  .header {
-    font-size: 36px;
-    color: #333;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .header:hover {
-    transform: scale(1.05);
-  }
-  
-  /* הצגת הטקסט */
-  .points-text {
-    font-size: 20px;
-    color: #555;
-    margin-bottom: 25px;
-    font-weight: bold;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* הצגת הכוכבים */
-  .points-display {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin: 30px 0;
-  }
-  
-  /* שורה של כוכבים זהב */
-  .gold-row {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  /* שורה של כוכבים כסף */
-  .silver-row {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  /* עיצוב הכוכבים */
-  .point {
-    width: 70px;
-    height: 70px;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    transition: transform 0.4s ease, box-shadow 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    box-sizing: border-box;
-    background: radial-gradient(circle, rgba(255, 215, 0, 1) 10%, rgba(255, 204, 0, 0.8) 60%, rgba(255, 204, 0, 0.3) 100%);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    opacity: 0.9;
-    transform: scale(1);
-  }
-  
-  /* כוכב זהב */
-  .point.gold {
-    background: radial-gradient(circle, rgba(255, 215, 0, 1) 10%, rgba(255, 204, 0, 0.8) 60%, rgba(255, 204, 0, 0.3) 100%);
-  }
-  
-  /* כוכב כסף */
-  .point.silver {
-    background: radial-gradient(circle, rgba(192, 192, 192, 1) 10%, rgba(169, 169, 169, 0.8) 60%, rgba(169, 169, 169, 0.3) 100%);
-  }
-  
-  /* אפקטים של hover */
-  .point:hover {
-    transform: scale(1.5);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.5);
-    filter: brightness(1.6);
-    opacity: 1;
-  }
-  
-  /* אפקטים של sparkle */
-  @keyframes sparkle {
-    0% {
-      transform: scale(1) rotate(0deg);
-      opacity: 0.9;
-    }
-    50% {
-      transform: scale(1.1) rotate(10deg);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1) rotate(-10deg);
-      opacity: 0.9;
-    }
-  }
-  
-  /* אפקט של פולטור */
-  .point:hover::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
-    border-radius: 50%;
-    animation: pulse 1.5s infinite alternate;
-    transform: translate(-50%, -50%);
-  }
-  
-  /* אפקט pulse */
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-      opacity: 0.5;
-    }
-    100% {
-      transform: scale(1.7);
-      opacity: 0;
-    }
-  }
-  
-  /* הודעת עידוד */
-  .encouragement {
-    font-size: 24px;
-    color: #4caf50;
-    font-weight: bold;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #e8f5e9;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.2);
-    animation: slideIn 0.6s ease-out;
-  }
-  
-  /* אנימציה של החלקה להודעה */
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+  width: 70%;
+  margin: 0 auto;
+  padding: 40px;
+  background: #FFFFFF;
+  color: #187096;
+  text-align: center;
+  border-radius: 0 0 20px 20px; /* מעוגל רק בחלק התחתון */
+  font-family: 'Heebo', sans-serif;
+  border: 2px solid #E172B7;
+  position: relative;
+  top: -40px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* צל עדין */
+}
+
+/* כותרת */
+.header {
+  font-size: 36px;
+  color: #187096;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* עיצוב הטקסט של הנקודות */
+.points-text .points-label {
+  font-size: 30px;
+  margin: 0;
+}
+
+.points-text .points-value {
+  font-size: 140px;
+  font-weight: 900;
+  color: #134973;
+  margin: 0;
+}
+
+/* הצגת הכוכבים */
+/* הצגת הכוכבים */
+.points-display {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+/* עיצוב שורות הכוכבים */
+.gold-row, .silver-row {
+  display: flex;
+  flex-wrap: wrap; /* מאפשר ירידה לשורה חדשה */
+  justify-content: center; /* מיקום מרכזי של הכוכבים */
+  gap: 20px; /* רווח בין הכוכבים */
+  max-width: 80%; /* רוחב מקסימלי לשורה */
+  margin: 0 auto; /* למרכז את השורות */
+}
+
+/* עיצוב הכוכבים */
+.point {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.star-icon {
+  width: 70px;
+  height: 70px;
+  transition: transform 0.4s ease;
+}
+
+/* אפקט hover */
+.point:hover .star-icon {
+  transform: scale(1.5);
+  opacity: 1;
+  filter: brightness(1.2);
+}
+
+
+/* הודעת עידוד */
+.encouragement {
+  font-family: 'SE_shilgiya', sans-serif;
+  font-size: 50px;
+  color: #187096;
+  margin: 0;
+  padding-top: 20px;
+}

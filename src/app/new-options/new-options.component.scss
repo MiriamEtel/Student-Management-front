@@ -1,59 +1,83 @@
+$blue-color: #246876;
+$pink-color: #FFD3ED;
+@font-face {
+  font-family: 'Heebo';
+  src: url('/assets/fonts/Heebo/Heebo-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* הגדרת הטווח של משקלי הגופן */
+  font-style: normal;
+}
 .whats-new-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
+  width: 70%;
+  margin: 0 auto; /* אין מרווחים חיצוניים */
+  padding: 40px;
+  background: #FFFFFF;
+  color: #187096;
+  text-align: center;
+  border-top-left-radius: 0; /* הפינה העליונה השמאלית ישרה */
+  border-top-right-radius: 0; /* הפינה העליונה הימנית ישרה */
+  border-bottom-left-radius: 20px; /* הפינה התחתונה השמאלית מעוגלת */
+  border-bottom-right-radius: 20px; /* הפינה התחתונה הימנית מעוגלת */
+  font-family: 'Heebo', sans-serif;
+  font-weight: normal;
+  overflow: hidden;
+  position: relative;
+  top: -40px; /* זז למעלה כך שיתחיל להופיע מיד לאחר סיום התמונה */
+  border: 2px solid #E172B7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+
+  // רווח גדול בין הכפתורים
+  .spacer {
+    height: 80px; // רווח אנכי נוסף בין הכפתור הראשון לעיגול השני
   }
-  
-  .header h1 {
-    font-size: 2.5rem;
-    color: #f6f4f2; /* חום בינוני */
-    margin-bottom: 10px;
-  }
-  
-  .header p {
-    font-size: 1.2rem;
-    color: #5A3E2B; /* חום בינוני */
-  }
-  
-  .options {
+
+  .option-item {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; // רווח בין האייקון לכפתור
+
+    .icon-circle {
+      position: relative;
+      width: 100px; // הגדלת העיגול
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .circle-svg {
+        width: 100%;
+        height: auto;
+      }
+
+      .inner-icon {
+        position: absolute;
+        width: 50px; // הגדלת האייקון
+        height: 50px;
+        fill: $pink-color;
+      }
+    }
+
+    .option-button {
+      background-color: $pink-color;
+      color: $blue-color;
+      border: 3px solid $blue-color; // מסגרת עבה
+      border-radius: 12px; // פינות קלות
+      width: 350px; // הגדלת רוחב הכפתור
+      height: 70px; // הגדלת גובה הכפתור
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.6rem; // הגדלת גודל הטקסט
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+      }
+    }
   }
-  
-  .option-card {
-    background: rgba(245, 222, 179, 0.9); /* חום בהיר עם שקיפות */
-    border: 1px solid #DEB887; /* חום בהיר */
-    border-radius: 10px;
-    width: 300px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-  }
-  
-  .option-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  .option-card .icon {
-    font-size: 3rem;
-    color: #8B4513; /* חום כהה */
-    margin-bottom: 15px;
-  }
-  
-  .option-card h2 {
-    font-size: 1.5rem;
-    color: #5A3E2B; /* חום בינוני */
-    margin-bottom: 10px;
-  }
-  
-  .option-card p {
-    font-size: 1rem;
-    color: #5A3E2B; /* חום בינוני */
-  }
-  
+}

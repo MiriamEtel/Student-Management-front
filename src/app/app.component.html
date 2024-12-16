@@ -3,27 +3,46 @@
 </ng-template>
 
 <div *ngIf="isLoggedIn; else login">
+  <div class="header-container" *ngIf="isStudent">
+    <div class="header-image">
+      <img [src]="selectedComponentImage" alt="Selected Component Image">
+    </div>
+    <div class="component-name-box">
+      <p>{{ componentTitle  }}</p>
+    </div>
+  </div>
+  
+  
   <div class="greeting">
     <!-- הצגת הודעת הברכה עם שם המשתמש -->
-    <p>😄{{ greetingMessage }} , {{ userName }}</p>
+    <p>{{ greetingMessage }} , {{ userName }}</p>
   </div>
 
-  <div class="navigation-buttons">
-    
+  <div class="navigation-buttons" >
     <!-- לחצן שזמין לכולם -->
    <!-- <button *ngIf="isStudent" routerLink="/decoration-selection" class="nav-btn">בחר קישוט</button>
     <button routerLink="/results" class="nav-btn">צפייה בתוצאות</button>-->
-    <button routerLink="/new-options" class="nav-btn">מה חדש</button>
-    <button *ngIf="isStudent" routerLink="/student-points" class="nav-btn">אזור אישי</button>
-    <button *ngIf="isStudent" routerLink="/class-points" class="nav-btn">אזור כיתתי</button>
-
+    <div class="footer-menu" *ngIf="isStudent">
+      <button (click)="logout()" routerLink="/logout" [routerLinkActive]="'active'" class="footer-btn">
+        <img src="/assets/icons/logout.svg" class="icon" alt="Icon">
+      </button>
+      <button routerLink="/new-options" [routerLinkActive]="'active'" class="footer-btn">
+        <img src="/assets/icons/star.svg" class="icon" alt="Icon">
+      </button>
+      <button routerLink="/class-points" [routerLinkActive]="'active'" class="footer-btn">
+        <img src="/assets/icons/class.svg" class="icon" alt="Icon">
+      </button>
+      <button routerLink="/student-points" [routerLinkActive]="'active'" class="footer-btn">
+        <img src="/assets/icons/personal.svg" class="icon" alt="Icon">
+      </button>
+    </div>
     <!-- לחצנים שזמינים רק למנהלים -->
-    <button *ngIf="isAdmin" routerLink="/add-student" class="nav-btn">הוסף תלמיד</button>
+    <!--<button *ngIf="isAdmin" routerLink="/add-student" class="nav-btn">הוסף תלמיד</button>-->
     <button *ngIf="isAdmin" routerLink="/upload-decoration" class="nav-btn">העלה קישוט</button>
     <button *ngIf="isAdmin" routerLink="/add-points" class="nav-btn">הוספת נקודות</button>
-
+    <button *ngIf="isAdmin" routerLink="/survey-creator" class="nav-btn">סקר יוצר </button>
     <!-- כפתור התנתקות -->
-    <button (click)="logout()" class="nav-btn">התנתק</button>
+    <button *ngIf="isAdmin" (click)="logout()" class="nav-btn">התנתק</button>
   </div>
   <router-outlet></router-outlet>
 </div>

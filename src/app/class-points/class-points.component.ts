@@ -58,4 +58,5 @@ export class ClassPointsComponent implements OnInit {
       }
     );
   }
+  
 }

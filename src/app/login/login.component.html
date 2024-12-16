@@ -1,41 +1,62 @@
-<div class="login-container">
-  <h2 class="header">{{ isRegister ? 'הרשמה' : '? עם מי הכבוד' }}</h2>
-  
-  <!-- טופס התחברות -->
-  <div *ngIf="!isRegister" class="form-container">
-    <input type="text" [(ngModel)]="username" class="input-field" placeholder="שם משתמש" required />
-    <input type="text" [(ngModel)]="id_number" class="input-field" placeholder="מספר תעודת זהות" required />
-    <button (click)="login()" class="btn btn-primary">התחבר</button>
-  </div>
+<div class="main-background">
+  <div class="content">
+    <!-- כותרת -->
+    <h2 class="title">
+      שמרנו לך<br>
+      <span class="bold-text">! מקום של כבוד</span>
+    </h2>
+    <p class="subtitle">! היכנסי, אנחנו מחכות לך</p>
 
-  <!-- טופס הרשמה -->
-  <div *ngIf="isRegister" class="form-container">
-    <input type="text" [(ngModel)]="nickname" class="input-field" placeholder="שם ומשפחה " required />
-    <input type="text" [(ngModel)]="id_number" class="input-field" placeholder="מספר תעודת זהות" required />
-    <input type="text" [(ngModel)]="className" class="input-field" placeholder="כיתה" required />
-    <select [(ngModel)]="donationField" class="input-field" required>
-      <option value="">בחרי את תחום הפעילות המעודף עליך</option>
-      <option *ngFor="let field of donationFields" [value]="field">{{ field }}</option>
-    </select>
-    <input type="text" [(ngModel)]="phone" class="input-field" placeholder=" מספר טלפון זמין" required />
-    
-    <button (click)="register()" class="btn btn-primary">הרשמה</button>
-  </div>
+    <!-- עיגול כחול עם החץ -->
+    <div class="icon-with-circle">
+      <img src="assets/icons/circle-icon.svg" alt="Blue Circle" class="circle-svg" />
+      <img src="assets/icons/arrow.svg" alt="Arrow Icon" class="inner-icon" />
+    </div>
 
-  <div class="custom-alert" *ngIf="showAlert">
-    <div class="custom-alert-content">
-      <p>{{ alertMessage }}</p>
-      <button (click)="closeAlert()">אישור</button>
+    <!-- כפתורים -->
+    <div class="buttons">
+      <button class="main-button" (click)="openForm(false)">כניסה</button>
+      <button class="main-button" (click)="openForm(true)">רישום</button>
     </div>
   </div>
+</div>
 
-  <!-- לינק לשינוי בין התחברות להרשמה -->
-  <p class="not-registered">
-    <span *ngIf="!isRegister">? עדין לא רשומה
-      <button (click)="toggleRegister()" class="register-link">לחצי כאן להרשמה</button>
-    </span>
-    <span *ngIf="isRegister">? נרשמת כבר
-      <button (click)="toggleRegister()" class="register-link">לחצי כאן להתחברות</button>
-    </span>
-  </p>
+<div class="overlay" *ngIf="showForm">
+  <div class="form-popup">
+    <!-- אייקון עיגול כחול עם אייקון מתאים -->
+    <div class="icon-with-circle">
+      <img src="assets/icons/circle-icon.svg" alt="Circle Icon" class="circle-svg" />
+      <img [src]="isRegister ? 'assets/icons/sofa.svg' : 'assets/icons/heart.svg'"
+           [alt]="isRegister ? 'Sofa Icon' : 'Heart Icon'"
+           class="inner-icon" />
+    </div>
+
+  <!-- כותרת הטופס -->
+  <h2 class="form-title">{{ isRegister ? '!עוד לא נרשמת ?  שמרנו לך מקום' : '!כבוד בשבילנו שאת כאן' }}</h2>
+  <p class="form-subtitle">{{ isRegister ?'! כמה פרטים ואת בפנים' : '!חיכינו שתבואי' }}</p>
+
+    <!-- טפסים -->
+    <div *ngIf="!isRegister" class="form-container">
+      <input type="text" [(ngModel)]="username" class="input-field" placeholder="שם משתמש" required (focus)="focusField('username')"/>
+      <input type="text" [(ngModel)]="id_number" placeholder="תעודת זהות" class="input-field" required (focus)="focusField('id_number')"/>
+      <button (click)="login()" class="form-button"> < להתחיל</button>
+    </div>
+
+    <div *ngIf="isRegister" class="form-container">
+      <input type="text" [(ngModel)]="id_number" placeholder="תעודת זהות" class="input-field" required (focus)="focusField('id_number')"/>
+      <input type="text" [(ngModel)]="nickname" placeholder="שם פרטי" class="input-field" required (focus)="focusField('nickname')"/>
+      <input type="text" [(ngModel)]="className" placeholder="כיתה" class="input-field" required (focus)="focusField('className')"/>
+      <input type="text" [(ngModel)]="phone" placeholder="מספר טלפון זמין" class="input-field" required (focus)="focusField('phone')" />
+      <div class="select-wrapper">
+        <select [(ngModel)]="donationField" class="input-field">
+          <option value="" disabled selected>בחרי תחום תרומה לפעילות</option>
+          <option *ngFor="let field of donationFields" [value]="field">{{ field }}</option>
+        </select>
+      </div>      
+      <button (click)="register()" class="form-button"> < להתחיל</button>
+    </div>
+    <p> </p>
+    <app-virtual-keyboard *ngIf="isKeyboardVisible" [activeField]="activeField" (inputChanged)="onInputChanged($event)"></app-virtual-keyboard>
+    <button class="close-button" (click)="closeForm()">&#10005;</button>
+  </div>
 </div>

@@ -1,0 +1,81 @@
+/* עיצוב כללי */
+.container {
+    max-width: 800px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  
+  h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  /* טופס */
+  form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* כפתורים */
+  .btn {
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-outline-danger {
+    border-color: #dc3545;
+  }
+  
+  /* כותרת שאלה */
+  .accordion-button {
+    font-weight: 600;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+    font-size: 1.1rem;
+  }
+  
+  /* עיצוב חוויית משתמש */
+  .accordion-body {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* חיזוק תשובות אופציונליות */
+  .form-select,
+  .form-control {
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  
+  button.btn i {
+    font-size: 1.2rem;
+  }
+  
+  /* צבעים */
+  .text-secondary {
+    color: #6c757d;
+  }
+  
+  /* עיצוב הכפתור "הוסף שאלה" */
+  .btn-success i {
+    margin-right: 8px;
+  }
+  

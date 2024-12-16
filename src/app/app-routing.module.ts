@@ -10,10 +10,13 @@ import { ClassPointsComponent } from './class-points/class-points.component';
 import { AddPointsComponent } from './add-points/add-points.component';
 import { RegisterComponent } from './register/register.component';
 import { NewOptionsComponent } from './new-options/new-options.component';
+import { SurveyCreatorComponent } from './survey-creator/survey-creator.component';
+import { VirtualKeyboardComponent } from './virtual-keyboard/virtual-keyboard.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'decoration-selection', component: DecorationSelectionComponent },
   { path: 'add-student', component: AddStudentComponent },
   { path: 'upload-decoration', component: UploadDecorationComponent },
@@ -23,6 +26,9 @@ const routes: Routes = [
   { path: 'add-points', component: AddPointsComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'new-options', component: NewOptionsComponent },
+  { path: 'survey-creator', component: SurveyCreatorComponent },
+  { path: 'virtual-keyboard', component: VirtualKeyboardComponent },
+
 ];
 
 @NgModule({

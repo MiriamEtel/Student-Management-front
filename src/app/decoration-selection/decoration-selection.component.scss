@@ -1,17 +1,28 @@
 .decoration-selection-container {
-  width: 80%;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #faf0e6;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   width: 70%;
+  margin: 0 auto; /* אין מרווחים חיצוניים */
+  padding: 40px;
+  background: #FFFFFF;
+  color: #187096;
+  text-align: center;
+  border-top-left-radius: 0; /* הפינה העליונה השמאלית ישרה */
+  border-top-right-radius: 0; /* הפינה העליונה הימנית ישרה */
+  border-bottom-left-radius: 20px; /* הפינה התחתונה השמאלית מעוגלת */
+  border-bottom-right-radius: 20px; /* הפינה התחתונה הימנית מעוגלת */
+  font-family: 'Heebo', sans-serif;
+  font-weight: normal;
+  overflow: hidden;
+  position: relative;
+  top: -40px; /* זז למעלה כך שיתחיל להופיע מיד לאחר סיום התמונה */
+  border: 2px solid #E172B7;
 }
 
 .header {
   text-align: center;
-  font-size: 24px;
+  font-size: 36px;
   margin-bottom: 20px;
-  color:#5d470a;
+  color:#187096;
+  font-weight: bold;
 }
 
 .decorations-list {
@@ -27,6 +38,7 @@
   background-color: #fff;
   padding: 15px;
   border-radius: 8px;
+  border: 1px solid #E172B7;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   width: 150px;
   margin-bottom: 20px;
@@ -39,18 +51,37 @@
   border-radius: 7px;
 }
 
-.btn {
-  padding: 10px;
-  border: none;
-  background-color:#5d470a;
-  color: white;
-  border-radius: 4px;
+/* סגנון כולל של הכפתור */
+.btn-circle {
+  width: 50px; /* גודל הכפתור */
+  height: 50px; /* גודל הכפתור */
+  border-radius: 50%; /* כפתור עגול */
+  background-color: #FFFFFF; /* רקע לבן */
+  background-image: url('/assets/icons/circle-heart.svg'); /* נתיב לאייקון ה-SVG */
+  background-size: 100%; /* גודל האייקון */
+  background-repeat: no-repeat; /* ללא חזרה של התמונה */
+  background-position: center; /* האייקון ממורכז */
+  border: 2px solid #187096; /* מסגרת חומה */
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
 }
 
-.btn:hover {
-  background-color:#74590d;
+/* אפקט hover לכפתור */
+.btn-circle:hover {
+  background-color: #F0E6D6; /* שינוי רקע בהובר */
+  transform: scale(1.1); /* הגדלה קלה */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* צל עדין */
 }
+
+/* כפתור במצב disabled */
+.btn-circle:disabled {
+  opacity: 0.5; /* הכפתור נראה דהוי */
+  cursor: not-allowed; /* מונע לחיצה */
+  background-color: #EFEFEF; /* רקע דהוי */
+  border-color: #CCC; /* מסגרת אפורה */
+}
+
 
 .decoration-item.disabled {
   opacity: 0.5; /* התמונות דהויות */
@@ -61,14 +92,14 @@
   margin-top: 20px;
   font-size: 16px;
   font-weight: bold;
-  color: #5d470a;
+  color: #187096;
   text-align: center;
 }
 ::ng-deep .custom-snackbar {
   font-size: 20px;  /* גודל טקסט גדול יותר */
   text-align: center;  /* למרכז את הטקסט */
   padding: 20px;  /* ריווח פנימי */
-  background-color: rgba(143, 85, 8, 0.8);  /* צבע רקע כהה */
+  background-color: #187096;  /* צבע רקע כהה */
   color: rgb(255, 255, 255);  /* צבע טקסט לבן */
   border-radius: 8px;  /* פינות מעוגלות */
   position: fixed;  /* מיקום קבוע במסך */

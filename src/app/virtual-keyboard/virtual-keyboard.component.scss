@@ -1,0 +1,36 @@
+/* עיצוב כללי של המקלדת */
+@font-face {
+  font-family: 'Heebo';
+  src: url('/assets/fonts/Heebo/Heebo-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* הגדרת הטווח של משקלי הגופן */
+  font-style: normal;
+}
+/* עיצוב כללי של המקלדת */
+.simple-keyboard {
+  background: transparent !important; /* רקע שקוף */
+  padding: 10px; /* רווח פנימי */
+  margin: 2px auto; /* רווח סביב המקלדת */
+  max-width: 95%; /* מגביל רוחב מקסימלי */
+  color: #246876 !important; /* צבע טורקיז */
+  font-family: 'Heebo', sans-serif !important; /* גופן Heebo */
+  font-size: 1.2rem !important;
+}
+
+/* המקלדת כולה עם מסגרת פנימית */
+.keyboard-container {
+  background: transparent; /* שקוף מאחור */
+  border: 4px solid #FFFFFF; /* מסגרת לבנה סביב הכל */
+  border-radius: 20px; /* מעגל עדין */
+  padding: 6px; /* רווח סביב המקלדת */
+  margin: 0 auto; /* מרכז אופקית */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* צל עדין */
+}
+
+  app-virtual-keyboard.show {
+    display: block; /* ודא שהמקלדת מוצגת */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* על המקלדת להיות מעל שאר האלמנטים */
+  }

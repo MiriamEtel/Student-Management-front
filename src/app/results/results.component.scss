@@ -1,10 +1,26 @@
+@font-face {
+  font-family: 'Heebo';
+  src: url('/assets/fonts/Heebo/Heebo-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* הגדרת הטווח של משקלי הגופן */
+  font-style: normal;
+}
 .results-wrapper {
-  width: 80%;
-  margin: 30px auto;
-  padding: 15px;
-  background-color: #faf0e6;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  margin: 0 auto; /* אין מרווחים חיצוניים */
+  padding: 40px;
+  background: #FFFFFF;
+  color: #187096;
+  text-align: center;
+  border-top-left-radius: 0; /* הפינה העליונה השמאלית ישרה */
+  border-top-right-radius: 0; /* הפינה העליונה הימנית ישרה */
+  border-bottom-left-radius: 20px; /* הפינה התחתונה השמאלית מעוגלת */
+  border-bottom-right-radius: 20px; /* הפינה התחתונה הימנית מעוגלת */
+  font-family: 'Heebo', sans-serif;
+  font-weight: normal;
+  overflow: hidden;
+  position: relative;
+  top: -40px; /* זז למעלה כך שיתחיל להופיע מיד לאחר סיום התמונה */
+  border: 2px solid #E172B7;
 }
 
 .results-section {
@@ -17,7 +33,7 @@
   text-align: center;
   font-size: 28px;
   font-weight: bold;
-  color: #5d470a; /* חום כהה */
+  color: #187096; 
   margin-bottom: 8px;
 }
 
@@ -34,7 +50,7 @@
 
 .winner-title {
   font-size: 22px;
-  color: #d17f0f; /* חום בהיר */
+  border: #E172B7;/* חום בהיר */
   font-weight: bold;
   margin-bottom: 15px;
 }
@@ -51,7 +67,7 @@
   max-width: 500px;
   height: 350px; /* הגדלת גובה הריבוע */
   margin: 0 auto;
-  border: 2px solid #d17f0f;
+  border: 2px solid #DB97C2;
   overflow: hidden;
 }
 
@@ -87,7 +103,7 @@
 .winner-details p {
   font-size: 20px;
   font-weight: bold;
-  background-color: rgba(209, 127, 15, 0.8); /* צבע רקע חום בהיר עם שקיפות */
+  background-color:#E382C1; /* צבע רקע חום בהיר עם שקיפות */
   color: #fff;
   padding: 5px 15px;
   border-radius: 20px;
@@ -115,6 +131,7 @@
   background-color: #ffffff;
   width: 200px;
   border-radius: 12px;
+  border: 2px solid #E172B7;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   padding: 15px;
   text-align: center;
