@@ -77,7 +77,7 @@ export class LoginComponent {
         }
       }, (error) => {
         console.error('Login error:', error);
-        this.showCustomAlert('שגיאה בהתחברות');
+        this.showCustomAlert('שם או תעודת זהות שגויים');
       });
   }
 
