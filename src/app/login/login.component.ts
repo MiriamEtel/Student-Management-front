@@ -23,7 +23,7 @@ export class LoginComponent {
   isKeyboardVisible = false;
   activeField: string = '';
   showForm: boolean = false;
-
+  selectedFields: string[] = ['', ''];
 
   donationFields = ['דרמה', 'מחול', 'מחזמר', 'שירה', 'נגינה', 'אמנות', 'טכני'];
 
@@ -71,7 +71,11 @@ export class LoginComponent {
           this.userService.setUserName(response.name);
           this.userService.setNickname(response.nickname);
           this.loginStatus.emit(true);
-          this.router.navigate(['/new-options']);
+          if (response.role === 'admin') {
+            this.router.navigate(['/add-points']); // למנהלים
+          } else {
+            this.router.navigate(['/new-options']); // לשאר המשתמשים
+          }
         } else {
           this.showCustomAlert('שם משתמש או תעודת זהות שגויים');
         }
@@ -96,7 +100,7 @@ export class LoginComponent {
     const registerData = {
       id_number: this.id_number,
       nickname: this.nickname,
-      donationField: this.donationField,
+      donationFields: this.selectedFields.join(','),
       phone: this.phone,
       className: this.className
     };
@@ -105,7 +109,7 @@ export class LoginComponent {
     this.http.post(`${apiUrl}/register`, registerData)
       .subscribe((response: any) => {
         if (response.success) {
-          this.showCustomAlert('הרשמה בוצעה בהצלחה!');
+          this.showCustomAlert('הרשמה בוצעה בהצלחה');
           this.toggleRegister(); 
         } else {
           this.showCustomAlert(response.error || 'שגיאה בהרשמה');

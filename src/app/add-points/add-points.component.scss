@@ -1,135 +1,142 @@
 .upload-container {
-    padding: 20px;
-    background-color: #faf0e6; /* צבע חום בהיר */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
-    text-align: center;
-  }
-  
-  .upload-title {
-    color: #5d470a; /* חום כהה */
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 600;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .custom-file-label {
-    display: block;
-    background-color: #d2b48c; /* חום בהיר */
-    border: 2px solid #5d470a; /* חום כהה */
-    border-radius: 5px;
-    padding: 10px;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .custom-file-label input[type="file"] {
-    display: none; /* הסתרת שדה הקובץ המקורי */
-  }
-  
-  .file-info {
-    color: #5d470a; /* חום כהה */
-    font-size: 16px;
-  }
-  
-  .form-control {
-    width: calc(100% - 20px);
-    padding: 10px;
-    border-radius: 5px;
-    border: 2px solid #5d470a; /* חום כהה */
-    font-size: 16px;
-  }
-  
-  .btn-turquoise {
-    background-color: #5d470a; /* חום כהה */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    font-size: 16px;
-    margin-top: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-turquoise:hover {
-    background-color: #3b2e06; /* חום כהה יותר */
-  }
-  
-  .error-message {
-    color: rgb(219, 9, 9);
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
-  .image-preview {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .image-preview img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  .custom-radio-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-  
-  .radio-buttons-row {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* הצרנו את המרווחים בין הכפתורים */
-  }
-  
-  .radio-button {
-    position: relative;
-  }
-  
-  .radio-label {
-    display: inline-block;
-    background-color: #8b5e3c; /* גוון חום כהה */
-    color: #fff;
-    padding: 8px 12px; /* הקטנה של הריפוד */
-    border-radius: 6px; /* עיגול קל יותר */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    font-size: 14px; /* הקטנת גודל הפונט */
-  }
-  
-  .radio-label:hover {
-    background-color: #704b2e; /* גוון חום כהה יותר */
-  }
-  
-  .radio-button input[type="radio"] {
-    display: none; /* מחביא את כפתור הבחירה המקורי */
-  }
-  
-  .radio-button input[type="radio"]:checked + .radio-label {
-    background-color: #4e3521; /* גוון חום כהה במיוחד */
-    border: 2px solid #fff;
-    transform: scale(1.05);
-  }
-  
-  .radio-buttons-row .radio-label {
-    min-width: 100px; /* הקטנה של רוחב הכפתורים */
-    text-align: center;
-  }
-  
+  padding: 20px;
+  background-color: #F2F1F1; /* רקע אפור בהיר */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.upload-title {
+  color: #187096; /* טורקיז */
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.custom-file-label {
+  display: block;
+  background-color: #DB97C2; /* ורוד */
+  border: 2px solid #187096; /* טורקיז */
+  border-radius: 5px;
+  padding: 10px;
+  color: #FFFFFF; /* טקסט לבן */
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-label:hover {
+  background-color: #C87EAA; /* ורוד כהה יותר */
+}
+
+.custom-file-label input[type="file"] {
+  display: none;
+}
+
+.file-info {
+  color: #187096; /* טורקיז */
+  font-size: 16px;
+}
+
+.form-control {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #DB97C2; /* ורוד */
+  font-size: 16px;
+  color: #187096; /* טורקיז */
+}
+
+.btn-turquoise {
+  background-color: #DB97C2; /* ורוד */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.btn-turquoise:hover {
+  background-color: #C87EAA; /* ורוד כהה יותר */
+}
+
+.error-message {
+  color: rgb(209, 84, 84);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.image-preview {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #DB97C2; /* מסגרת ורודה */
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.custom-radio-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.radio-buttons-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.radio-button {
+  position: relative;
+}
+
+.radio-label {
+  display: inline-block;
+  background-color: #DB97C2; /* ורוד */
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 14px;
+}
+
+.radio-label:hover {
+  background-color: #C87EAA; /* ורוד כהה יותר */
+}
+
+.radio-button input[type="radio"] {
+  display: none;
+}
+
+.radio-button input[type="radio"]:checked + .radio-label {
+  background-color: #187096; /* טורקיז כהה */
+  border: 2px solid #fff;
+  transform: scale(1.05);
+}
+
+.radio-buttons-row .radio-label {
+  min-width: 100px;
+  text-align: center;
+}

@@ -11,9 +11,9 @@
   justify-content: center;
 }
 
-.nav-btn {
+.admin-btn {
   padding: 12px 25px;
-  background: linear-gradient(135deg, #8e5a3d, #5d470a); /* גרדיאנט חום */
+  background: linear-gradient(135deg, #DB97C2, #187096); /* גרדיאנט ורוד לטורקיז */
   color: white;
   border: none;
   border-radius: 8px;
@@ -25,21 +25,22 @@
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* אפקטים חלקים */
 }
 
-.nav-btn:hover {
-  background: linear-gradient(135deg, #5d470a, #8e5a3d); /* שינוי צבע ב-hover */
+.admin-btn:hover {
+  background: linear-gradient(135deg, #187096, #DB97C2); /* שינוי צבע ב-hover */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* הצללה חזקה יותר */
   transform: translateY(-3px); /* אפקט של התרוממות קליל */
 }
 
-.nav-btn:active {
+.admin-btn:active {
   transform: translateY(2px); /* אפקט של לחיצה */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.nav-btn:focus {
-  outline: none; /* מסיר את המסגרת המוכרת ב-focus */
-  box-shadow: 0 0 5px 2px rgba(93, 71, 18, 0.7); /* הוספת הצללה כשהכפתור מקבל פוקוס */
+.admin-btn:focus {
+  outline: none; /* מסיר את המסגרת המובנית */
+  box-shadow: 0 0 5px 2px rgba(24, 112, 150, 0.7); /* הוספת הצללה טורקיז כהה */
 }
+
 /* greeting.component.scss */
 .greeting {
   position: absolute; /* מיקום יחסי בתוך הקונטיינר */

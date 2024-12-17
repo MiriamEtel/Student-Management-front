@@ -30,6 +30,7 @@ import { RegisterComponent } from './register/register.component';
 import { NewOptionsComponent } from './new-options/new-options.component';
 import { SurveyCreatorComponent } from './survey-creator/survey-creator.component';
 import { VirtualKeyboardComponent } from './virtual-keyboard/virtual-keyboard.component';
+import { AdminContributionSearchComponent } from './admin-contribution-search/admin-contribution-search.component';
 
 
 
@@ -53,6 +54,7 @@ import { VirtualKeyboardComponent } from './virtual-keyboard/virtual-keyboard.co
     NewOptionsComponent,
     SurveyCreatorComponent,
     VirtualKeyboardComponent,
+    AdminContributionSearchComponent,
     
     
   ],
@@ -72,6 +74,8 @@ import { VirtualKeyboardComponent } from './virtual-keyboard/virtual-keyboard.co
       { path: 'new-options', component: NewOptionsComponent },
       { path: 'survey-creator', component: SurveyCreatorComponent },
       { path: 'virtual-keyboard', component: VirtualKeyboardComponent },
+      { path: 'admin-contribution-Search', component: AdminContributionSearchComponent },
+
 
     ]),
     FormsModule ,

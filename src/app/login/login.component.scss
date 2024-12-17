@@ -9,6 +9,12 @@ $white: #FFFFFF;
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Heebo';
+  src: url('/assets/fonts/Heebo/Heebo-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* הגדרת הטווח של משקלי הגופן */
+  font-style: normal;
+}
 
 /* מסך הרקע הראשי */
 .main-background {
@@ -269,12 +275,68 @@ app-virtual-keyboard.show {
   background-color: #187096;
   color: white;
   border: none;
-  border-radius: 7px;
+  border-radius: px;
   padding: 6px 12px;
   cursor: pointer;
   margin-top: 15px;
 }
 
+.select-wrapper {
+  margin-top: 10px;
+
+  label {
+    display: block;
+    font-size: 18px;
+    color: #187096;
+    margin-bottom: 10px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bold;
+  }
+
+  .dropdown-field {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 20px;
+    font-size: 1.3rem;
+    color: #246876;
+    text-align: right;
+    direction: rtl;
+    width: 90%; /* צר יותר */
+    margin: 0 auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+    appearance: none; /* הסרת ברירת מחדל של הדפדפן */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  .dropdown-field:focus {
+    outline: none;
+    border-color: #DB97C2;
+    box-shadow: 0 0 5px rgba(219, 151, 194, 0.5);
+  }
+  /* עיצוב רשימת האופציות הנפתחת */
+  select::-ms-expand {
+    display: none; /* מסתיר את החץ ב-IE */
+  }
+
+  option {
+    background-color: #F2F1F1; /* רקע אפור */
+    color: #246876; /* צבע טורקיז לטקסט */
+    padding: 10px;
+  }
+
+  option:hover,
+  option:focus {
+    background-color: #246876; /* רקע ורוד בהיר */
+    color: #FFFFFF; /* טקסט לבן */
+  }
+  /* מסיר את הקו המפריד האחרון */
+  option:last-child {
+    border-bottom: none;
+  }
+}
 
 
 

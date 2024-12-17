@@ -48,9 +48,9 @@ export class AppComponent implements OnInit {
 
   setGreeting() {
     const hour = new Date().getHours();
-    if (hour < 12) {
+    if (hour >= 6 && hour < 12) {
       this.greetingMessage = 'בוקר טוב';
-    } else if (hour < 18) {
+    } else if (hour >= 12 && hour < 18){
       this.greetingMessage = 'צהריים טובים';
     } else {
       this.greetingMessage = 'ערב טוב';

@@ -1,7 +1,8 @@
 .upload-container {
   padding: 20px;
-  background-color: #faf0e6; /* צבע חום בהיר */
-  border-radius: 8px;
+  background: #f9f9f9;
+  border: 1px solid #DB97C2;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   margin: auto;
@@ -9,7 +10,7 @@
 }
 
 .upload-title {
-  color: #5d470a; /* חום כהה */
+  color: #187096; /* טורקיז */
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: 600;
@@ -21,12 +22,15 @@
 
 .custom-file-label {
   display: block;
-  background-color: #d2b48c; /* חום בהיר */
-  border: 2px solid #5d470a; /* חום כהה */
+  background-color: #DB97C2; /* ורוד בהיר */
+  border: 2px solid #187096; /* טורקיז */
   border-radius: 5px;
   padding: 10px;
   position: relative;
   cursor: pointer;
+  color: #FFFFFF; /* טקסט לבן */
+  font-weight: 500;
+  text-align: center;
 }
 
 .custom-file-label input[type="file"] {
@@ -34,7 +38,7 @@
 }
 
 .file-info {
-  color: #5d470a; /* חום כהה */
+  color: #187096; /* טורקיז */
   font-size: 16px;
 }
 
@@ -42,12 +46,13 @@
   width: calc(100% - 20px);
   padding: 10px;
   border-radius: 5px;
-  border: 2px solid #5d470a; /* חום כהה */
+  border: 2px solid #DB97C2; /* ורוד בהיר */
   font-size: 16px;
+  color: #187096; /* טורקיז */
 }
 
 .btn-turquoise {
-  background-color: #5d470a; /* חום כהה */
+  background-color: #DB97C2; /* ורוד */
   border: none;
   color: white;
   padding: 10px 20px;
@@ -64,7 +69,7 @@
 }
 
 .btn-turquoise:hover {
-  background-color: #3b2e06; /* חום כהה יותר */
+  background-color: #C87EAA; /* ורוד כהה יותר */
 }
 
 .btn-turquoise i {
@@ -79,21 +84,13 @@
 .image-preview img {
   max-width: 100%;
   height: auto;
-  border: 1px solid #ddd;
+  border: 1px solid #DB97C2; /* מסגרת ורודה */
   border-radius: 5px;
   padding: 5px;
 }
 
 .form-group label[for="name"] {
-  color: #5d470a; /* חום כהה */
+  color: #187096; /* טורקיז */
   font-size: 18px;
   font-weight: 600; /* Bold */
-}
-
-.image-preview img {
-  max-width: 200px;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 5px;
 }

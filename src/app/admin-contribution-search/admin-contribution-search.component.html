@@ -1,0 +1,52 @@
+<div class="admin-search-container">
+    <h2>חיפוש תלמידות לפי תחום וכיתה</h2>
+  
+    <!-- שדה חיפוש -->
+    <div class="search-field">
+      <!-- בחירת תחום -->
+      <select class="input-field" [(ngModel)]="selectedField">
+        <option value="" disabled selected>בחר תחום</option>
+        <option *ngFor="let field of contributionFields" [value]="field">{{ field }}</option>
+      </select>
+  
+      <!-- בחירת כיתה -->
+      <select class="input-field" [(ngModel)]="selectedClass">
+        <option value="" selected>כל הכיתות</option>
+        <option *ngFor="let className of classList" [value]="className">{{ className }}</option>
+      </select>
+  
+      <!-- כפתור חיפוש -->
+      <button class="search-button" (click)="searchStudents()">חפש</button>
+    </div>
+  
+    <!-- טבלת התוצאות -->
+    <table *ngIf="students.length > 0" class="results-table">
+      <thead>
+        <tr>
+          <th>שם</th>
+          <th>כיתה</th>
+          <th>תחום</th>
+          <th>מיקום</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.name }}</td>
+          <td>{{ student.className }}</td>
+          <td>{{ student.contribution_area }}</td>
+          <td>{{ student.position }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- פג'ינציה -->
+    <div class="pagination" *ngIf="students.length > 0">
+      <button class="pagination-button" (click)="prevPage()" [disabled]="currentPage === 1">עמוד קודם</button>
+      <span>עמוד {{ currentPage }} מתוך {{ totalPages }}</span>
+      <button class="pagination-button" (click)="nextPage()" [disabled]="currentPage === totalPages">עמוד הבא</button>
+    </div>
+  
+    <!-- הודעה כאשר אין תוצאות -->
+    <p *ngIf="searched && students.length === 0">לא נמצאו תלמידות בתחום וכיתה זו.</p>
+  </div>
+  

@@ -48,11 +48,18 @@
       <input type="text" [(ngModel)]="className" placeholder="כיתה" class="input-field" required (focus)="focusField('className')"/>
       <input type="text" [(ngModel)]="phone" placeholder="מספר טלפון זמין" class="input-field" required (focus)="focusField('phone')" />
       <div class="select-wrapper">
-        <select [(ngModel)]="donationField" class="input-field">
-          <option value="" disabled selected>בחרי תחום תרומה לפעילות</option>
+        <label>? באיזה תחום תרצי לתרום לפעילות</label>
+        <select [(ngModel)]="selectedFields[0]" class="dropdown-field">
+          <option value="" disabled selected>תחום ראשון</option>
           <option *ngFor="let field of donationFields" [value]="field">{{ field }}</option>
         </select>
-      </div>      
+      
+        <select [(ngModel)]="selectedFields[1]" class="dropdown-field">
+          <option value="" disabled selected>תחום שני</option>
+          <option *ngFor="let field of donationFields" [value]="field">{{ field }}</option>
+        </select>
+      </div>
+            
       <button (click)="register()" class="form-button"> < להתחיל</button>
     </div>
     <p> </p>

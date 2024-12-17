@@ -38,11 +38,12 @@
     </div>
     <!-- לחצנים שזמינים רק למנהלים -->
     <!--<button *ngIf="isAdmin" routerLink="/add-student" class="nav-btn">הוסף תלמיד</button>-->
-    <button *ngIf="isAdmin" routerLink="/upload-decoration" class="nav-btn">העלה קישוט</button>
-    <button *ngIf="isAdmin" routerLink="/add-points" class="nav-btn">הוספת נקודות</button>
-    <button *ngIf="isAdmin" routerLink="/survey-creator" class="nav-btn">סקר יוצר </button>
+    <button *ngIf="isAdmin" routerLink="/upload-decoration" class="admin-btn">העלה קישוט</button>
+    <button *ngIf="isAdmin" routerLink="/add-points" class="admin-btn">הוספת נקודות</button>
+   <!--<button *ngIf="isAdmin" routerLink="/survey-creator" class="admin-btn">סקר יוצר </button>-->
+    <button *ngIf="isAdmin" routerLink="/admin-contribution-Search" class="admin-btn">תרומה לפעילות</button>
     <!-- כפתור התנתקות -->
-    <button *ngIf="isAdmin" (click)="logout()" class="nav-btn">התנתק</button>
+    <button *ngIf="isAdmin" (click)="logout()" class="admin-btn">התנתק</button>
   </div>
   <router-outlet></router-outlet>
 </div>
