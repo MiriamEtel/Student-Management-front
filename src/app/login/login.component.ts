@@ -65,7 +65,7 @@ export class LoginComponent {
       .subscribe((response: any) => {
         console.log('Login response:', response);
         if (response.success) {
-          this.userService.setIdNumber(this.id_number);
+          this.userService.setIdNumber(response.id_number);
           this.userService.setRole(response.role);
           this.userService.setUserClass(response.class_name);
           this.userService.setUserName(response.name);
