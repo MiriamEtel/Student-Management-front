@@ -14,7 +14,8 @@ import { MatSnackBar } from '@angular/material/snack-bar'; // ייבוא MatSnac
 export class DecorationSelectionComponent implements OnInit {
   decorations: any[] = [];
   hasVoted = false;  // דגל שמציין אם המשתמש הצביע כבר
-
+  selectedImage: string | null = null;
+  showModal: boolean = false;
   constructor(
     private http: HttpClient,
     private userService: UserService,
@@ -101,5 +102,17 @@ export class DecorationSelectionComponent implements OnInit {
         console.log('ההצבעה בוטלה');
       }
     });
+  }
+
+
+  // פונקציה לפתיחת התמונה המוגדלת
+  openModal(imageUrl: string) {
+    this.selectedImage = imageUrl;
+    this.showModal = true;
+  }
+  
+  closeModal() {
+    this.showModal = false;
+    this.selectedImage = '';
   }
 }

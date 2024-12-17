@@ -109,4 +109,58 @@
   z-index: 9999;  /* לוודא שההודעה תהיה מעל שאר התוכן */
 }
 
+/* סגנון למודל */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; /* רקע שקוף */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* סגנון התוכן של המודל */
+.modal-content {
+  position: relative; /* מאפשר מיקום יחסי לכפתור ה-X */
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* תמונה מוגדלת */
+.full-image {
+  max-width: 90%;
+  max-height: 90%;
+  border: 2px solid #E172B7; /* מסגרת ורודה */
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* צל עדין */
+}
+
+/* כפתור הסגירה */
+.close-button {
+  position: absolute; /* מיקום הכפתור */
+  top: 5px; /* צמוד לקצה העליון של התמונה */
+  right: 40px; /* צמוד לקצה הימני של התמונה */
+  background: #E172B7; /* רקע ורוד */
+  color: #ffffff; /* טקסט לבן */
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 5px 10px;
+  border-radius: 50%; /* כפתור עגול */
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* אפקט hover לכפתור */
+.close-button:hover {
+  background-color: #D86BA9; /* רקע ורוד כהה */
+  transform: scale(1.1);
+}
 

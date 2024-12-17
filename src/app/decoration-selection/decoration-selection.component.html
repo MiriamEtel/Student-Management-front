@@ -4,7 +4,7 @@
     <div *ngFor="let decoration of decorations" class="decoration-item" [ngClass]="{'disabled': hasVoted}">
       <!-- שם הקישוט מוצג מעל התמונה -->
       <div class="decoration-name">{{ decoration.class_name }}</div>
-      <img [src]="decoration.image_url" alt="{{ decoration.class_name }}" class="decoration-image"/>
+      <img [src]="decoration.image_url" alt="{{ decoration.class_name }}" class="decoration-image" (click)=" openModal(decoration.image_url)" />
       <div class="decoration-details">
         <button
         (click)="selectDecoration(decoration)"
@@ -20,4 +20,13 @@
   <div *ngIf="hasVoted" class="voted-message">
     כבר הצבעת! תודה על השתתפותך.
   </div>
+  <!-- Modal לתצוגה של תמונה מוגדלת -->
+  <div class="image-modal" *ngIf="showModal" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-button" (click)="closeModal()">&times;</button>
+      <img [src]="selectedImage" alt="תמונה מוגדלת" class="full-image" />
+    </div>
+  </div>
+  
+
 </div>
