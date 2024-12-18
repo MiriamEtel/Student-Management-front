@@ -12,6 +12,7 @@ export class StudentPointsComponent implements OnInit {
   goldPointsArray: number[] = []; // נקודות זהב
   silverPointsArray: number[] = []; // נקודות כסף
   bonusMessage: string | null = null;
+  nickname: string | null = null;
 
   constructor(
     private studentPointsService: StudentPointsService,
@@ -19,6 +20,8 @@ export class StudentPointsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.nickname = this.userService.getNickname(); // עדכון המאפיין המחלקתי
+    console.log(this.nickname); // הדפסה לאימות
     const studentId = this.userService.getIdNumber(); // שליפת המזהה משירות המשתמש
     if (studentId) {
       this.fetchStudentPoints(studentId); // שליפת הנקודות לפי מזהה התלמיד
@@ -57,7 +60,7 @@ export class StudentPointsComponent implements OnInit {
       } else if (this.totalPoints > 20 && this.totalPoints <= 30) {
         this.bonusMessage = "! טוב יותר ועוד יותר , ועוד";
       } else {
-        this.bonusMessage = "!יופי! יש לך לאן להתקדם";
+        this.bonusMessage = "! לכי גבוה יש לך למה";
       }
     } else {
       this.bonusMessage = null;

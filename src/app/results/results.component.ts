@@ -51,7 +51,7 @@ export class ResultsComponent implements OnInit {
       data: {
         labels: labels,
         datasets: [{
-          label: 'מספר הצבעות',
+          label: '',
           data: voteCounts,
           backgroundColor: barColors, // צבעים אקראיים עבור כל בר
           borderColor: barColors, // גבולות בצבעים המתאימים
