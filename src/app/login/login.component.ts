@@ -24,6 +24,7 @@ export class LoginComponent {
   activeField: string = '';
   showForm: boolean = false;
   selectedFields: string[] = ['', ''];
+  classes: string[] = []; // רשימת הכיתות
 
   donationFields = ['דרמה', 'מחול', 'מחזמר', 'שירה', 'נגינה', 'אמנות', 'טכני'];
 
@@ -31,7 +32,17 @@ export class LoginComponent {
     private http: HttpClient,
     private router: Router,
     private userService: UserService 
-  ) {}
+  ) {this.loadClasses();}
+
+    // פונקציה לטעינת הכיתות מהשרת
+    loadClasses() {
+      const apiUrl = environment.apiUrl;
+      this.http.get(`${apiUrl}/get_class_list`).subscribe((response: any) => {
+        this.classes = response.classes; // משתמש במפתח 'classes' שמוחזר מהשרת
+      }, (error) => {
+        console.error('Error loading classes:', error);
+      });
+    }    
 
   showCustomAlert(message: string) {
     this.alertMessage = message;
@@ -80,7 +91,13 @@ export class LoginComponent {
         }
       }, (error) => {
         console.error('Login error:', error);
-        this.showCustomAlert('שגיאה בהתחברות');
+        if (error.status === 403) {
+          this.showCustomAlert('עלייך להשלים את ההרשמה למערכת');
+        } else if (error.status === 404) {
+          this.showCustomAlert('מספר זהות לא נכון או לא קיים במערכת');
+        } else {
+          this.showCustomAlert('שגיאה בהתחברות');
+        }
       });
   }
   

@@ -44,7 +44,12 @@
     <div *ngIf="isRegister" class="form-container">
       <input type="text" [(ngModel)]="id_number" placeholder="תעודת זהות" class="input-field" required (focus)="focusField('id_number')"/>
       <input type="text" [(ngModel)]="nickname" placeholder="שם פרטי" class="input-field" required (focus)="focusField('nickname')"/>
-      <input type="text" [(ngModel)]="className" placeholder="כיתה" class="input-field" required (focus)="focusField('className')"/>
+      <div class="select-wrapper">
+        <select [(ngModel)]="className" class="dropdown-field" required>
+          <option value="" disabled selected>בחרי כיתה</option>
+          <option *ngFor="let class of classes" [value]="class">{{ class }}</option>
+        </select>
+      </div>      
       <input type="text" [(ngModel)]="phone" placeholder="מספר טלפון זמין" class="input-field" required (focus)="focusField('phone')" />
       <div class="select-wrapper">
         <label>? באיזה תחום תרצי לתרום לפעילות</label>

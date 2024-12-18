@@ -56,7 +56,12 @@ export class AppComponent implements OnInit {
       this.greetingMessage = 'ערב טוב';
     }
 
-    this.userName = this.userService.getUserName();
+    const role = this.userService.getRole();
+    if (role === 'admin') {
+      this.userName = this.userService.getUserName(); // שם מלא למנהל
+    } else {
+      this.userName = this.userService.getNickname(); // שם חיבה למשתמש רגיל
+    }
   }
 
   updateComponentImage() {
@@ -65,7 +70,7 @@ export class AppComponent implements OnInit {
     // קביעת התמונה לפי הנתיב הנוכחי
     if (currentRoute.includes('new-options')) {
       this.selectedComponentImage = '/assets/images/new-bg.png';
-      this.componentTitle = '? מה חדש';
+      this.componentTitle = 'חדש לכבודך';
     } else if (currentRoute.includes('class-points')) {
       this.selectedComponentImage = '/assets/images/class-bg.png';
       this.componentTitle = 'אזור כיתתי';
