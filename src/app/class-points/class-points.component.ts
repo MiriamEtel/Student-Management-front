@@ -46,12 +46,7 @@ export class ClassPointsComponent implements OnInit {
         this.silverPointsArray = Array(silverPoints).fill(0);
 
         // הודעת עידוד
-        this.bonusMessage =
-          this.totalClassPoints >= 50
-            ? 'כל הכבוד! הכיתה שלכם מתקדמת בצבירה מרשימה!'
-            : this.totalClassPoints >= 20
-            ? 'מצוין! המשיכו כך!'
-            : 'התחלה טובה, בואו נשקיע עוד קצת';
+        this.bonusMessage ='! כל נקודה - אות כבוד'
       },
       (error) => {
         console.error('שגיאה בשליפת הנקודות:', error);
