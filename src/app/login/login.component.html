@@ -37,7 +37,6 @@
 
     <!-- טפסים -->
     <div *ngIf="!isRegister" class="form-container">
-      <input type="text" [(ngModel)]="username" class="input-field" placeholder="שם משתמש" required (focus)="focusField('username')"/>
       <input type="text" [(ngModel)]="id_number" placeholder="תעודת זהות" class="input-field" required (focus)="focusField('id_number')"/>
       <button (click)="login()" class="form-button"> < להתחיל</button>
     </div>

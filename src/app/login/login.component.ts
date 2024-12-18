@@ -50,17 +50,16 @@ export class LoginComponent {
   }
 
   login() {
-    this.username = this.sanitizeInput(this.username);
     this.id_number = this.sanitizeInput(this.id_number);
-
-    if (!this.username || !this.id_number) {
-      this.showCustomAlert('יש למלא את כל השדות');
+  
+    if (!this.id_number) {
+      this.showCustomAlert('יש להזין תעודת זהות');
       return;
     }
-
-    const loginData = { username: this.username, id_number: this.id_number };
+  
+    const loginData = { id_number: this.id_number };
     const apiUrl = environment.apiUrl;
-
+  
     this.http.post(`${apiUrl}/login`, loginData)
       .subscribe((response: any) => {
         console.log('Login response:', response);
@@ -77,13 +76,14 @@ export class LoginComponent {
             this.router.navigate(['/new-options']); // לשאר המשתמשים
           }
         } else {
-          this.showCustomAlert('שם משתמש או תעודת זהות שגויים');
+          this.showCustomAlert('תעודת זהות שגויה');
         }
       }, (error) => {
         console.error('Login error:', error);
-        this.showCustomAlert('שם או תעודת זהות שגויים');
+        this.showCustomAlert('שגיאה בהתחברות');
       });
   }
+  
 
   register() {
     this.id_number = this.sanitizeInput(this.id_number);
